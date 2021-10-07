@@ -1,0 +1,46 @@
+
+<div class="top-modal top-modal-area">
+
+    <div class="top-modal-flame">
+
+      <div class="top-modal-flame-cancel">
+        <a href="#" class="top-modal-flame-cancel-link">
+          <div class="top-modal-flame-cancel-inner">×</div>
+        </a>
+      </div>
+
+      <div class="top-modal-flame-inner">
+    
+        <p class="top-modal-flame-inner-text">エリアを選んでください</p>
+
+        <p class="top-modal-flame-inner-err">エラー：チェックを選んでください</p>
+
+        <%= form_tag("/places" , method: :get , class:"top-modal-form") do %>
+          <div class="top-modal-flame-inner-form">
+
+            <div class="check-item">
+          <!-- モーダルに出てくるジャンル検索名のループ -->
+              <% @all_areas.each do | all_area| %>
+                <div class="check-item-detail">
+                  <input type="checkbox" name="areas[]" value="<%= all_area.id %>"　style="transform:scale(1.0);">
+                  <label><%= all_area.name %></label>
+                </div>
+              <% end %>
+            </div>
+
+          </div>
+
+          <div class="check-submit">
+            <button type="submit" name="submit">エリア検索</button>
+          </div>
+
+        <% end %>
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>

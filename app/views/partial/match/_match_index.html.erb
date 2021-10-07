@@ -1,0 +1,113 @@
+
+ <% if @all_match.present? %>
+  <div class="scroll-list jscroll">
+    <% @all_match.each do |match| %>
+            
+      <div id="delete-<%= match.id %>">
+        <!--　削除モーダルをレンダリング  --> 
+        <%= render partial:'matches/delete', locals: { match: match}  %>
+                              
+        <% if match.user_id == current_user.id %>
+          <ul class="index-main-match-btns">
+            <a class="match-fa-edit-link">
+              <i class="fas fa-edit fa-1x"></i>
+            </a>
+            <a class="match-delete-btn-link"><div class="match-delete-btn">削除</div></a>
+          </ul>
+        <% end %>
+
+        <div class="index-main-content">
+          <div class="index-main-contens-flame-main">
+            <% if match.user_id == current_user.id %>
+              <!--　ユーザーimageを表示 --> 
+              <%= image_tag current_user.image.to_s %>
+              <p class="index-main-contens-toukou">
+                <%= link_to "投稿者:" + match.user.name , user_show_match_index_path(current_user.id) %>
+              </p>
+            <% else %>
+                <!--　ユーザーimageを表示 --> 
+               <%= image_tag match.user.image.to_s %>
+               <p class="index-main-contens-toukou">
+               
+                <%= link_to "投稿者:" + match.user.name , user_show_match_index_other_path(match.user.id) %>
+              </p>
+            <% end %>
+              
+            <p class="index-main-contens-event">
+              イベント内容:<%= match.name%>
+            </p>
+
+            <p class="index-main-contens-schedule">
+              開催予定日:<%= match.day%> <%= match.time.strftime('%H:%M') %>
+
+              <% if match.day === Date.today-7 %>
+                本日掲載終了
+              <% elsif match.day === Date.today-6 %>
+                掲載終了まであと2日
+              <% elsif match.day === Date.today-5 %>
+                掲載終了まであと3日
+              <% elsif match.day === Date.today-4 %>
+                掲載終了まであと4日
+              <% elsif match.day === Date.today-3 %>
+                掲載終了まであと5日
+              <% elsif match.day === Date.today-2 %>
+                掲載終了まであと6日
+              <% elsif match.day === Date.today-1 %>
+                掲載終了まであと7日
+              <% elsif match.day === Date.today %>
+                本日イベント開催日
+              <% end %>
+            </p>
+             
+            <p class="index-main-contens-area-name">
+              エリア:<%= match.area.name%>
+              <%= match.area_detail%>
+            </p>
+        
+
+            <div class="index-main-contens-flame-genre">
+              <a class="index-main-contens-genre">
+                <%= match.genre.name %>
+              </a>
+            </div>
+            
+            <div class="index-main-contens-flame-event-detail">
+              <%= match.event_detail%>
+            </div>
+
+            <div id="entry-<%= match.id %>">
+              <!--　エントリー箇所をレンダリング  --> 
+              <%= render partial:'matches/match', locals: { match: match}  %>
+            </div>
+
+           
+
+            <div class="index-main-contens-flame-count-comment">
+              <%= link_to "" , class:   'index-main-contens-entry-comment-count-link' , data: {"turbolinks"   => false} do %>
+                      
+                <div class="index-main-contens-entry-comment-count">
+                <p class="comment-count-number">コメント数：<%= match.comments.length %></p>
+                </div>
+              <% end %>
+
+              <%= link_to "" , class: 'index-main-contens-entry-comment-link' ,
+              data: {"turbolinks" => false} do %>
+                <div class="index-main-contens-entry-comment">コメントする</div>
+              <% end %>
+            </div>
+
+            <!--　コメント箇所をレンダリング  --> 
+            <%= render partial:'comments/comments', locals: { match: match} %>
+          </div>
+        </div>
+
+
+        
+      </div>
+    <% end %>
+              <!--　ページネーション   --> 
+              <%= paginate @all_match , remote: true %>
+  </div>
+<% else %>
+  <p class="matchless-message">現在、あなたとスポ友が企画した球技イベントはありません</p>
+<% end %>

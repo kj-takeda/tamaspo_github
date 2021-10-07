@@ -1,0 +1,109 @@
+.new-registration-frame {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.new-registration-container {
+  width: 100%;
+  height: 100%;
+}
+
+.new-registration-container-inner {
+  margin: 0 auto;
+  color: white;
+  background-color: black;
+  padding: 50px;
+}
+
+//場所名全体
+.registration-name,
+.registration-email,
+.registration-image,
+.registration-introduction,
+.registration-genre,
+.registration-password {
+  margin: 5px;
+  border-radius: 5px;
+  border: dashed 2px#FE2370;
+}
+
+.registration-genre {
+  padding-bottom: 15px;
+}
+
+//場所名ラベル
+.registration-name-label,
+.registration-email-label,
+.registration-image-label,
+.registration-introduction-label,
+.registration-genre-label,
+.registration-password-label {
+  display: block;
+  font-size: 12px;
+  margin: 5px;
+}
+
+//ジャンルラベル
+.registration-genre-label {
+  margin-bottom: 10px;
+}
+
+.must {
+  color: red;
+}
+
+//場所名テキスト
+.registration-name-input,
+.registration-email-input,
+.registration-image-input,
+.registration-introduction-input,
+.registration-password-input {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  width: 50%;
+  height: 50px;
+}
+
+//画像アップロードの箇所「選択されていません」箇所
+.registration-image-input {
+  font-size: 10px;
+}
+
+.registration-genre-label {
+  font-size: 12px;
+}
+
+.genre-info input {
+  color: white;
+  margin: 10px;
+}
+
+.registration-genre label {
+  font-size: 12px;
+}
+
+.actions input {
+  width: 50%;
+  height: 50px;
+  background-color: #F7FAFA;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  .new-registration-container-inner {
+    padding: 5px;
+  }
+
+  .registration-name-input,
+  .registration-email-input,
+  .registration-image-input,
+  .registration-introduction-input,
+  .registration-password-input {
+    width: 90%;
+  }
+
+}

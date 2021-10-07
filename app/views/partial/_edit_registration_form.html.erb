@@ -1,0 +1,107 @@
+
+<!--画像送信できるようにmultipart: trueを追加 -->
+<%= form_with model:@user , url:user_registration_path(), local: true , class: "registration-edit-form" do |f| %>
+
+  <%= render 'layouts/error_messages' %>
+
+  <%= f.hidden_field :id , value:@user.id %>
+
+  <!-- フォームに何かしらユーザーネームが存在すればinputにデータ残す -->
+  <% if flash[:user_failure_name] %>
+    <div class="registration-name">
+      <p class="must">[必須]</p>
+      <%= f.label :ユーザーネーム  ,  class: "registration-name-label"%><br>
+      <%= f.text_field :name , class: "registration-name-input" ,
+      placeholder: "ユーザーネーム(30文字以内)" ,
+      minlength:1 , maxlength:30 ,
+      value:flash[:user_failure_name] %>
+    </div>
+  <% else %>
+    <div class="registration-name">
+      <p class="must">[必須]</p>
+      <%= f.label :ユーザーネーム , class: "registration-name-label"%><br>
+      <%= f.text_field :name , class: "registration-name-input" ,
+      placeholder: "ユーザーネーム(30文字以内)" , maxlength:30 %>
+    </div>
+  <% end %>
+
+  <% if flash[:user_failure_email] %>
+    <div class="registration-email">
+      <p class="must">[必須]</p>
+      <%= f.label :メールアドレス , class: "registration-email-label"%><br>
+      <%= f.email_field :email , class: "registration-email-input" ,
+      placeholder: "@必須" , maxlength:256 ,
+      value: flash[:user_failure_email] %>
+    </div>
+  <% else %>
+    <div class="registration-email">
+      <p class="must">[必須]</p>
+      <%= f.label :メールアドレス , class: "registration-email-label"%><br>
+      <%= f.email_field :email , class: "registration-email-input" ,
+      placeholder: "@必須" , maxlength:256 %>
+    </div>
+  <% end %>
+
+
+  <div class="registration-image">
+    <%= f.label :画像 , class:"registration-image-input"%><br>
+    <label>
+       <div class="file-label">更新ファイルを選択する<br>「jpg」「jpeg」「png」<br>上記の拡張子ファイルのみ設定可能</div>
+    
+      <p class="file-text">選択されていません<br>
+      ※未選択の場合はbefore画像が継続されます</p>
+      <%= f.file_field :image, id: "image" , autofocus: true,
+      class: "registration-image-input" , 
+      accept: 'image/jpg,image/jpeg,image/png' %>
+    </label>
+    <div class="before-image">before画像</div>
+    <!--　ユーザーimageを表示 --> 
+    <%= image_tag @user.image.to_s %>
+    <p class="before-image-delete"><%= f.check_box :remove_image %>before画像を削除する<br>(画像を更新する場合はチェック不要)</p>
+  </div>
+
+  <% if flash[:user_failure_introduction] %>
+    <div class="registration-introduction">
+      <%= f.label :自己紹介 , class:"registration-introduction-label"%><br>
+      <%= f.text_area :introduction, autofocus: true,
+      class: "registration-introduction-input",
+      value:flash[:user_failure_introduction] ,
+      placeholder: "300文字以内 任意項目" , maxlength:300 %>
+    </div>
+  <% else %>
+    <div class="registration-introduction">
+      <%= f.label :自己紹介 , class:"registration-introduction-label"%><br>
+      <%= f.text_area :introduction, autofocus: true,
+      class: "registration-introduction-input" ,
+      placeholder: "300文字以内 任意項目" , maxlength:300 %>
+    </div>
+  <% end %>
+
+  <!-- genre_idに当てはまるジャンルにcheckつける -->
+  <% if flash[:user_failure_genre_id] %>
+    <div class="registration-genre">
+          <p class="must">[必須]</p>
+          <%= f.label :ジャンル , class: "registration-genre-label" %>
+          <%= f.collection_radio_buttons(:genre_id , Genre.all , :id, :name ,include_hidden: false , class: "registration-genre-check" , 
+          checked: flash[:user_failure_genre_id]) %>
+        </div>
+  <% else %>
+    <div class="registration-genre">
+      <p class="must">[必須]</p>
+      <%= f.label :ジャンル , class: "registration-genre-label" %>
+      <%= f.collection_radio_buttons(:genre_id , Genre.all , :id, :name ,
+      include_hidden: false , class: "registration-genre-check") %>
+    </div>
+  <% end %>
+
+  <div class="registration-password">
+    <%= f.label :パスワード , class:"registration-password-label"%>
+    <%= f.password_field :password , class: "registration-password-input",
+    minlength:6 , maxlength:12 ,
+    placeholder: "6文字~12文字以内 半角英数字のみ" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "編集" %>
+  </div>
+<% end %>

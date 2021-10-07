@@ -1,0 +1,35 @@
+<div class="edit-password-frame">
+
+  <%= render 'partial/header_new_edit' %>
+
+  <div class="edit-password-container">
+
+    <div class="edit-password-container-inner">
+
+      <h2>登録したメールアドレスを入力してください</h2>
+
+      <!-- ユーザー登録成功のflashメッセージが存在する時のみ表示 --> 
+      <% if flash[:password_error] %>
+        <div class="flash-password_error-message">
+        <!-- ユーザー登録完了時のflashメッセージ --> 
+         <p><%= flash[:password_error] %></p>
+        </div>
+      <% end %>
+
+      <%= form_for(resource, as: resource_name, url: edit_reset_password_path(resource_name), html: { method: :get }) do |f| %>
+
+        <div class="edit-password-email">
+          <%= f.label :メールアドレス , class: "edit-password-email-label"%><br>
+          <%= f.email_field :email, autofocus: true,
+           autocomplete: "email" , class: "edit-password-email-input" ,
+           placeholder: "@必須" , maxlength:256  %>
+        </div>
+
+        <div class="edit-password-actions">
+          <%= f.submit "メールアドレス検索" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+  <div class="user-search-main-sidebar">
+       <!-- ifログインしていれば -->
+      <div class="user-search-main-sidebar-my-friends">
+
+        <%= form_tag(user_word_search_path(),method:'get' , class:"user-search-form") do %>
+          <div class="search-form-input">
+            <%= text_field_tag :search , "" ,
+             placeholder: "ユーザー検索(10文字以内)" ,
+             maxlength:'10'%>
+          </div>
+          <div class="search-form-submit">
+            <%= submit_tag '検索', :name => nil %>
+          </div>
+        <% end %> 
+
+        <div class="search-friends-inner">
+          <%= link_to user_search_path(current_user.id) ,
+          class: 'search-friends-inner-link01' ,
+          method: :get ,
+          data: {"turbolinks" => false} do %>
+            <div class="search-friends-inner-text01">
+              スポ友を探す
+            </div>
+          <% end %>
+
+          <%= link_to user_get_request_path(current_user.id) ,
+          class: 'search-friends-inner-link02' ,
+          method: :get ,
+          data: {"turbolinks" => false} do %>
+            <div class="search-friends-inner-text02">
+              受け取ったスポ友リクエストを見る
+            </div>
+          <% end %>
+
+          <%= link_to user_send_request_path(current_user.id) ,
+          class: 'search-friends-inner-link03' ,
+          method: :get ,
+          data: {"turbolinks" => false} do %>
+            <div class="search-friends-inner-text03">
+              送ったスポ友リクエストを見る
+            </div>
+          <% end %>
+
+          <%= link_to user_hidden_user_index_path(current_user.id) ,
+          class: 'search-friends-inner-link04' ,
+          method: :get ,
+          data: {"turbolinks" => false} do %>
+            <div class="search-friends-inner-text04">
+              非表示設定したスポ友
+            </div>
+          <% end %>
+
+          <%= link_to user_friend_index_path(current_user.id) ,
+          class: 'search-friends-inner-link05' ,
+          method: :get ,
+          data: {"turbolinks" => false} do %>
+            <div class="search-friends-inner-text05">
+              あなたのスポ友一覧
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,13 @@
+//ページネーションを非表示にしている
+//無限スクロールの為
+.pagination {
+  display: none;
+}
+
+//無限スクロール読み込み要素
+.page_css {
+  background: white;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}

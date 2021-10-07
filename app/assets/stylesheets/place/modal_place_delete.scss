@@ -1,0 +1,59 @@
+//場所削除時に登場する削除ボタンがある要素ビジュアル ここから///////////////
+.delete-place-info {
+  position: absolute;
+  z-index: 100px;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: none;
+  height: 350px;
+}
+
+//球技スポット削除 注意
+.delete-place-info p {
+  padding: 10px;
+  color: red;
+  font-size: 15px;
+}
+
+.delete-place-info-link,
+.delete-place-info-cancel-link {
+  background-color: #FE2370;
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  width: 50%;
+  text-align: center;
+  font-size: 12px;
+}
+
+//場所削除モーダルのキャンセルリンクを無効にする
+.delete-place-info-cancel-link {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  //球技スポット削除 注意
+  .delete-place-info p {
+    font-size: 12px;
+  }
+
+  .delete-place-info {
+    width: 100%;
+  }
+
+  .delete-place-info-link,
+  .delete-place-info-cancel-link {
+    width: 95%;
+  }
+}
+
+//場所削除時に登場する削除ボタンがある要素ビジュアル ここまで//////////////////////

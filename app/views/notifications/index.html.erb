@@ -1,0 +1,115 @@
+<div class="place-index-frame">
+
+  <%= render 'partial/header' %>
+
+    <div class="place-index-container">
+
+    <%= render 'partial/sidebar/index-sidebar' %>
+    <!--　コンテンツ表示  --> 
+    <div class="index-main-contents">
+    
+      <% if @notifications.present? %>
+        <div class="scroll-list jscroll">
+          <% @notifications.each do |notification| %>
+            <% if notification.action == "Entry" %>   
+               <div class="notifications-time"><%= notification.created_at.strftime('%Y年%-m月%-d日 %-H時%-M分') %></div>
+              <div class="notifications-border">
+                 <%= link_to user_show_match_index_other_path(notification.visitor.id) , 
+                 data: {"turbolinks" => false} do %>
+
+                <div class="show-image04">
+                  <%= image_tag notification.visitor.image.to_s %>
+                </div>
+                 <!--　アクションを起こしたカレント以外のユーザー  --> 
+                  <p><%= "「" + notification.visitor.name + "」さんが" %></p>
+                <% end %>
+
+                <%= link_to match_path(current_user.id) , 
+                data: {"turbolinks" => false} do %>あなたの投稿したイベントにエントリーしました
+                <% end %>
+              </div>
+            <% end %>
+         
+            <% if notification.action == "Follow" %>
+              <div class="notifications-time"><%= notification.created_at.strftime('%Y年%-m月%-d日 %-H時%-M分') %></div>
+              <div class="notifications-border">
+                <%= link_to user_show_match_index_other_path(notification.visitor.id) , 
+                data: {"turbolinks" => false} do %>
+                  <div class="show-image04">
+                    <%= image_tag notification.visitor.image.to_s %>
+                  </div>
+                  <!--　アクションを起こしたカレント以外のユーザー  --> 
+                  <%= "「" + notification.visitor.name + "」さんが" %>
+                <% end %>
+
+                <%= link_to user_show_match_index_path(current_user.id) , 
+                data: {"turbolinks" => false} do %>があなたをフォローしました
+                <% end %>
+              </div>
+            <% end %>
+          
+            <% if notification.action == "Message" %>
+              <div class="notifications-time"><%= notification.created_at.strftime('%Y年%-m月%-d日 %-H時%-M分') %></div>
+              <div class="notifications-border">
+                <%= link_to user_show_match_index_other_path(notification.visitor.id) , 
+                data: {"turbolinks" => false} do %>
+                  <div class="show-image04">
+                    <%= image_tag notification.visitor.image.to_s %>
+                  </div>
+                  <!--　アクションを起こしたカレント以外のユーザー  --> 
+                  <%=  "「" + notification.visitor.name + "」さんから" %>
+                <% end %>
+
+                <%= link_to message_index_path(notification.visitor.id) , 
+                data: {"turbolinks" => false} do %>あなたにメッセージが届きました
+                <% end %>
+              </div>
+            <% end %>
+    
+            <% if notification.action == "Comment" %>
+              <div class="notifications-time"><%= notification.created_at.strftime('%Y年%-m月%-d日 %-H時%-M分') %></div>
+              <div class="notifications-border">
+                <%= link_to user_show_match_index_other_path(notification.visitor.id) , 
+                data: {"turbolinks" => false} do %>
+                  <div class="show-image04">
+                    <%= image_tag notification.visitor.image.to_s %>
+                  </div>
+                  <!--　アクションを起こしたカレント以外のユーザー  --> 
+                  <%= "「" + notification.visitor.name + "」さんが" %>
+                <% end %>
+
+                <%= link_to match_path(notification.match_id) , 
+                data: {"turbolinks" => false} do %>があなたの投稿したイベントにコメントしました
+                <% end %>
+              </div>
+            <% end %>
+      
+            <% if notification.action == "Comment_good" %>
+              <div class="notifications-time"><%= notification.created_at.strftime('%Y年%-m月%-d日 %-H時%-M分') %></div>
+              <div class="notifications-border">
+                <%= link_to user_show_match_index_other_path(notification.visitor.id) , 
+                data: {"turbolinks" => false} do %>
+                    <div class="show-image04">
+                    <%= image_tag notification.visitor.image.to_s %>
+                  </div>
+                  <!--　アクションを起こしたカレント以外のユーザー  --> 
+                  <%= "「" + notification.visitor.name + "」さんが" %>
+                <% end %>
+
+                <%= link_to comment_path(notification.comment_id) , 
+                data: {"turbolinks" => false} do %>があなたのコメントに「いいね！」しました
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+           <!-- 無限スクロール用のコード --> 
+              <%= paginate @notifications , remote: true %>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+
+
+
+

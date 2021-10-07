@@ -1,0 +1,49 @@
+
+<div class="new-sessions-frame">
+  <%= render 'partial/header_new_edit' %>
+
+  <div class="new-sessions-container">
+    <div class="new-sessions-container-inner">
+      <%# deivseのフラッシュメッセージを表示 %>
+     
+       <%# deivseのフラッシュメッセージを表示 %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <h2>ユーザーログイン</h2>
+      
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <%= render 'layouts/error_messages' %>
+
+        <div class="sessions-email">
+          <%= f.label :email , class:"sessions-email-label" %><br />
+          <%= f.email_field :email, autofocus: true , autocomplete: "email" , class:"sessions-email-input" ,
+          placeholder: "@必須" , maxlength:256 %>
+        </div>
+
+        <div class="sessions-password">
+          <%= f.label :パスワード , class:"sessions-password-label"%><br />
+          <%= f.password_field :password, 
+          autocomplete: "current-password" , class:"sessions-password-input" ,
+          minlength:6 , maxlength:12 ,
+          placeholder: "6文字~12文字以内 半角英数字のみ" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="sessions-remenber">
+          <%= f.check_box :remember_me , class:"sessions-remenber-label" %>
+          <%= f.label :ログイン状態を保つ , class:"sessions-remenber-input" %>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "ユーザーログイン" %>
+        </div>
+      <% end %>
+      <div class="links-element">
+        <%= render "devise/shared/links" %>
+      <div class="links-element">
+    </div>
+  </div>
+</div>

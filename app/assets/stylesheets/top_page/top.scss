@@ -1,0 +1,78 @@
+.top-frame {
+  height: 100%;
+  width: 100%;
+}
+
+.top-container {
+  background-image: image-url("top_img.jpg");
+  background-size: 100%;
+  display: flex;
+  min-height: 800px;
+}
+
+.index-main-contents {
+  color: white;
+  margin-top: 100px;
+}
+
+.top-btns {
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
+  color: white;
+}
+
+.top-btns-btn {
+  margin-bottom: 50px;
+  border-radius: 30px;
+  /* 角の丸み */
+  border: 0;
+  /* 枠線を消す */
+  transition: 0.3s;
+  /* ホバーの変化を滑らかに */
+}
+
+.top-btns-btn a {
+  display: block;
+  height: 100px;
+  width: 75%;
+  margin: 0 auto;
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+.top-btns-btn-link01 {
+  background-color: #03359D;
+  color: #FFF;
+}
+
+.top-btns-btn-link02 {
+  background-color: #36F1CD;
+  color: #FFF;
+}
+
+.top-button {
+  font-size: 18px;
+  width: 50%;
+  line-height: 100px;
+  text-align: center;
+  margin: 0 auto;
+  font-weight: bolder;
+}
+
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  .index-main-contents {
+    margin-top: 50px;
+  }
+
+  .top-btns-btn a {
+    width: 90%;
+  }
+
+  .top-button {
+    font-size: 12px;
+  }
+}

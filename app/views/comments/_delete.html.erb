@@ -1,0 +1,20 @@
+<div class="delete-comment-info">
+  <p>コメント「<%= comment.body %>」を削除します<br>
+  ※削除したコメントは復元できませんのでご注意ください</p>
+
+  <div class="index-main-contens-flame-delete">
+    <!--　placeが中間テーブルで結ばれているレコードを取得  --> 
+    <div class="index-main-comment-delete-summary">
+
+      <%= link_to 'コメント削除', destroy_comment_path(comment) ,
+      class: 'delete-comment-info-link' , 
+      method: :DELETE , remote:true %>
+       
+      <a class="delete-comment-info-cancel-link">
+        キャンセル
+      </a>
+
+    </div>
+  </div>
+ </div>
+

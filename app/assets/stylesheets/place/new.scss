@@ -1,0 +1,157 @@
+.new-place-frame {
+  width: 100%;
+  height: auto;
+}
+
+.new-place-container {
+  width: 100%;
+  height: 100%;
+}
+
+//フォーム全体を囲む枠
+.new-place-container-inner {
+  margin: 0 auto;
+  color: white;
+  background-color: black;
+  padding: 50px;
+}
+
+//フォームそのもの
+.place-new-form {
+  margin-top: 25px;
+}
+
+//場所名全体
+.place-name,
+.place-tel,
+.place-address,
+.place-url,
+.place-detail,
+.genre-info,
+.area-info,
+.search-train,
+.train-info {
+  margin: 5px;
+  border-radius: 5px;
+  border: dashed 2px#FE2370;
+}
+
+//場所名ラベル
+.place-name-label,
+.place-tel-label,
+.place-address-label,
+.place-url-label,
+.place-detail-label,
+.genre-info-label,
+.area-info label,
+.search-train label,
+.train-info label {
+  display: block;
+  font-size: 12px;
+  margin: 5px;
+}
+
+.must {
+  color: red;
+}
+
+
+//場所名テキスト
+.place-name-input,
+.place-tel-input,
+.place-address-input,
+.place-url-input,
+.place-detail-input,
+.area-info select,
+.search-train-input,
+.train-info select,
+.place-new-form-submit-btn {
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+}
+
+.area-info select {
+  display: block;
+}
+
+//ジャンルのビジュアル
+.genre-info {
+  font-size: 12px;
+  padding-bottom: 15px;
+}
+
+.search-train-attention {
+  font-size: 10px;
+  color: red;
+  margin: 5px;
+}
+
+.line_trains-info-flame {
+  height: auto;
+  width: 80%;
+  overflow: scroll;
+  margin-left: 5px;
+}
+
+
+.line_trains-info-flame a {
+  text-decoration: none;
+}
+
+//表示される駅一覧
+.train-info {
+  text-decoration: none;
+  margin-bottom: 5px;
+  font-size: 12px;
+  padding: 10px;
+}
+
+//登録する駅のビジュアル
+.train-info .must,
+.train-info label {
+  margin-left: -10px;
+}
+
+#place_train_id {
+  margin-left: -5px;
+}
+
+
+.line_trains-info-flame-inner a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.place-new-form-submit-btn {
+  width: 50%;
+  height: 50px;
+  background-color: #F7FAFA;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  .place-name-input,
+  .place-tel-input,
+  .place-address-input,
+  .place-url-input,
+  .place-detail-input,
+  .area-info select,
+  .search-train-input,
+  .train-info select,
+  .place-new-form-submit-btn {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+  }
+
+  .new-place-container-inner {
+    padding: 10px;
+  }
+}

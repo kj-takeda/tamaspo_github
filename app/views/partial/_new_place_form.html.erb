@@ -1,0 +1,154 @@
+<%= form_with model: Place.new , local: true , 
+class: "place-new-form" do |form| %>
+
+  <%= render 'layouts/error_messages' %>
+
+  <% if flash[:place_failure] %>
+    <div class="place-name">
+      <p class="must">[必須]</p>
+      <%= form.label :場所名 , class: "place-name-label" %>
+      <%= form.text_area :name , placeholder: "場所名を入力してください(100文字以内)" , class: "place-name-input" , maxlength:'100' , 
+      size: "30x5" , value:flash[:place_failure]["name"] %>
+    </div>
+  <% else %>
+    <div class="place-name">
+      <p class="must">[必須]</p>
+      <%= form.label :場所名 , class: "place-name-label" %>
+      <%= form.text_area :name , placeholder: "場所名を入力してください(100文字以内)" , 
+      class: "place-name-input" , maxlength:'100' , size: "30x5"%>
+    </div>
+  <% end %>
+
+  <% if flash[:place_failure] %>
+    <div class="place-tel">
+      <%= form.label :電話番号 , class: "place-tel-label" %>
+      <%= form.text_field :tel , placeholder: "電話番号を入力してください(半角数字/ハイフン不要)", class: "place-tel-input" , maxlength:'11' , value:flash[:place_failure]["tel"]%>
+    </div>
+  <% else %>
+    <div class="place-tel">
+      <%= form.label :電話番号 , class: "place-tel-label" %>
+      <%= form.text_field :tel , placeholder: "電話番号を入力してください(半角数字/ハイフン不要)", class: "place-tel-input" , maxlength:'11' %>
+    </div>
+  <% end %>
+
+  <!-- エリアモデルを使い全てのエリアをループする -->
+  <% if flash[:place_failure] %>
+    <div class="area-info">
+      <p class="must">[必須]</p>
+      <%= form.label :エリア , class: "area-info-label" %>
+      <%= form.collection_select(:area_id , Area.all , :id, :name ,
+      include_blank:"エリアを選択してください" , selected:flash[:area_id]) %>
+    </div>
+  <% else %>
+    <div class="area-info">
+      <p class="must">[必須]</p>
+      <%= form.label :エリア , class: "area-info-label" %>
+      <%= form.collection_select(:area_id , Area.all , :id, :name ,
+      include_blank:"エリアを選択してください") %>
+    </div>
+  <% end %>
+
+  <% if flash[:place_failure] %>
+    <div class="place-address">
+      <p class="must">[必須]</p>
+      <%= form.label :住所 , class: "place-address-label" %>
+      <%= form.text_area :address , placeholder: "住所を入力してください(100文字以内)", class: "place-address-input" , maxlength:'100' , 
+      size: "30x5" , value:flash[:place_failure]["address"]%>
+    </div>
+  <% else %>
+    <div class="place-address">
+      <p class="must">[必須]</p>
+      <%= form.label :住所 , class: "place-address-label" %>
+      <%= form.text_area :address , placeholder: "住所を入力してください(100文字以内)", 
+      class: "place-address-input" , maxlength:'100' ,
+       size: "30x5"%>
+    </div>
+  <% end %>
+
+  <% if flash[:place_failure] %>
+    <div class="place-url">
+      <%= form.label :title ,"URL" , class: "place-url-label" %>
+      <%= form.text_area :url , placeholder: "URLを入力してください(300文字以内)", 
+      class: "place-url-input" , maxlength:'300' , 
+      size: "50x10" , value:flash[:place_failure]["url"] %>
+    </div>
+  <% else %>
+    <div class="place-url">
+      <%= form.label :title ,"URL" , class: "place-url-label" %>
+      <%= form.text_area :url , placeholder: "URLを入力してください(300文字以内)", class: "place-url-input" , maxlength:'300' , size: "50x10"%>
+    </div>
+  <% end %>
+
+  <% if flash[:place_failure] %>
+    <div class="place-detail">
+      <p class="must">[必須]</p>
+      <%= form.label :詳細情報 , class: "place-detail-label"%>
+      <%= form.text_area :place_detail , placeholder: "2000文字以内", class: "place-detail-input" , maxlength:'2000' , size: "50x10" , value:flash[:place_failure]["place_detail"] %>
+    </div>
+  <% else %>
+    <div class="place-detail">
+      <p class="must">[必須]</p>
+      <%= form.label :詳細情報 , class: "place-detail-label"%>
+      <%= form.text_area :place_detail , placeholder: "2000文字以内", class: "place-detail-input" , maxlength:'2000' , size: "50x10" %>
+    </div>
+   <% end %>
+
+  <!-- ジャンルモデルを使い全てのエリアをループする -->
+  <!-- 選んだジャンルと=のエリアを表示する -->
+  <% if flash[:place_genres] %>
+    <div class="genre-info">
+      <p class="must">[必須]</p>
+      <%= form.label :ジャンル , class: "genre-info-label" %>
+      <%= form.collection_check_boxes(:genre_ids , Genre.all , :id, :name , class: "genre-info-check" , checked:flash[:place_genres]) %>
+    </div>
+  <% else %>
+    <div class="genre-info">
+      <p class="must">[必須]</p>
+      <%= form.label :ジャンル , class: "genre-info-label" %>
+      <%= form.collection_check_boxes(:genre_ids , Genre.all , :id, :name , class: "genre-info-check") %>
+    </div>
+  <% end %>
+
+  <!-- 駅検索する為のコード -->
+  <!-- 検索するとline_trains-infoに該当駅がリスト化される -->
+  <div class="search-train">
+    <%= form.label :駅検索 %>
+    <p class="search-train-attention">テキストに駅名を入力すると駅情報が表示されます</p>
+    <%= form.text_field :search , placeholder: "設定する駅名を設定して下さい", class: "search-train-input" %>
+    <p class="search-train-attention">表示される駅名をクリックする事で駅設定を行います</p>
+  </div>
+
+  <div class="line_trains-info">
+    <div class="line_trains-info-flame">
+      <div class="line_trains-info-flame-inner">
+      <!-- この場所に非同で候補駅が表示される -->
+      </div>
+    </div>
+  </div>
+  
+  <% if flash[:place_failure] && flash[:train_name] && flash[:train_line_name] %>
+    <div class="train-info">
+      <p class="must">[必須]</p>
+      <%= form.label :登録する駅情報 %>
+      <%= form.select :train_id ,  [[flash[:train_name] + " / " + flash[:train_line_name] , flash[:place_failure]["train_id"]]] ,
+      class: "train-info-input" %>
+    </div>
+  <% else %>
+    <div class="train-info">
+      <p class="must">[必須]</p>
+      <%= form.label :登録する駅情報 %>
+      <%= form.select :train_id , [["", ""]] ,
+      class: "train-info-input" %>
+    </div>
+  <% end %>
+
+  <div class="user-id-info">
+    <%= form.hidden_field :user_id , value: current_user.id ,
+    class: "user-id-input" %>
+  </div>
+
+  <div class="place-new-form-submit">
+    <%= form.submit value:"球技スポット登録" , class:"place-new-form-submit-btn" %>
+  </div>
+
+<% end %>

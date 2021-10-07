@@ -1,0 +1,82 @@
+
+ <% if @all_match.present? %>
+  <div class="scroll-list jscroll">
+    <% @all_match.each do |match| %>
+            
+      <div id="delete-<%= match.id %>">
+        <!--　削除モーダルをレンダリング  --> 
+        <%= render partial:'matches/delete', locals: { match: match}  %>
+                              
+        <% if match.user_id == @current_user.id %>
+          <ul class="index-main-match-btns">
+            <a class="match-fa-edit-link"><i class="fas fa-edit fa-lg"></i></a>
+              <a class="match-delete-btn-link"><div class="match-delete-btn">削除</div></a>
+          </ul>
+        <% end %>
+
+        <div class="index-main-content">
+          <div class="index-main-contens-flame-main">
+            <!--　ユーザーimageを表示 --> 
+            <div class="show-image02">
+              <%= image_tag current_user.image.to_s %>
+            </div>
+
+            <p class="index-main-contens-toukou">
+              投稿者:<%= link_to match.user.name , user_show_match_index_path(@current_user.id) %>
+            </p>
+              
+            <p class="index-main-contens-event">
+              イベント内容:<%= match.name%>
+            </p>
+
+            <p class="index-main-contens-schedule">
+              開催予定日:<%= match.day%> <%= match.time.strftime('%H:%M') %>
+            </p>
+             
+            <p class="index-main-contens-area-name">
+              エリア:<%= match.area.name%>
+              <%= match.area_detail%>
+            </p>
+        
+
+            <div class="index-main-contens-flame-genre">
+              <a class="index-main-contens-genre">
+                <%= match.genre.name %>
+              </a>
+            </div>
+            
+            <div class="index-main-contens-flame-event-detail">
+              <%= match.event_detail%>
+            </div>
+
+            <div id="entry-<%= match.id %>">
+              <!--　エントリー箇所をレンダリング  --> 
+              <%= render partial:'matches/match', locals: { match: match}  %>
+            </div>
+
+            <div class="index-main-contens-flame-count-comment">
+              <%= link_to "" , class:   'index-main-contens-entry-comment-count-link' , data: {"turbolinks"   => false} do %>
+                      
+                <div class="index-main-contens-entry-comment-count">
+                <p class="comment-count-number">コメント数：<%= match.comments.length %></p>
+                </div>
+              <% end %>
+
+              <%= link_to "" , class: 'index-main-contens-entry-comment-link' ,
+              data: {"turbolinks" => false} do %>
+                <div class="index-main-contens-entry-comment">コメントする</div>
+              <% end %>
+            </div>
+
+            <!--　コメント箇所をレンダリング  --> 
+            <%= render partial:'comments/comments', locals: { match: match} %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+              <!--　ページネーション   --> 
+              <%= paginate @all_match , remote: true %>
+  </div>
+<% else %>
+  <p class="matchless-message">現在、<%= current_user.name + "さん"%>が投稿した球技イベントはありません</p>
+<% end %>

@@ -1,0 +1,39 @@
+<div class="match-index-frame">
+
+  <%= render 'partial/header' %>
+
+  <div class="match-index-container">
+
+    <%= render 'partial/sidebar/index-sidebar' %>
+
+    <div class="index-main-contents">
+
+      <!-- 「球技イベント」の登録成功flashメッセージが存在する時のみ表示 --> 
+      <% if flash[:match_success]  %>
+        <div class="flash-success-message">
+          <!-- ユーザー登録完了時のflashメッセージ --> 
+          <p><%= flash[:match_success] %></p>
+        </div>
+      <% end %>
+
+       <!-- 「球技できる場所」の登録成功flashメッセージが存在する時のみ表示 --> 
+    <% if flash[:place_success] %>
+      <div class="flash-success-message">
+      <!-- ユーザー登録完了時のflashメッセージ --> 
+        <p><%= flash[:place_success] %></p>
+      </div>
+    <% end %>
+        
+      <div class="index-main-contents-search-check">
+        <div class="index-main-contents-search-check-title">
+          <p>あなたとスポ友たちの投稿を開催日が古い順に表示
+          (イベント開催日から7日以上経過した情報は一覧ページには表示されません)</p>
+        </div>
+      </div>
+
+      <!-- 場所index情報をレンダリング --> 
+      <%= render 'partial/match/match_index' %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="edit-user-info">
+  <p>ユーザー情報「<%= current_user.name %>」を編集します<br>
+  
+  <div class="index-main-contens-flame-edit">
+    <!--　placeが中間テーブルで結ばれているレコードを取得  --> 
+    <div class="index-main-contens-edit-summary">
+
+      <%= link_to 'ユーザー情報編集', 
+      edit_user_registration_path() ,
+      class: 'edit-user-info-link' ,
+      data: {"turbolinks" => false} %>
+    
+      <a class="edit-user-info-cancel-link">
+        キャンセル
+      </a>
+
+    </div>
+  </div>
+</div>

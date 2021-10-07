@@ -1,0 +1,159 @@
+.place-index-frame {
+  width: 100%;
+  height: auto;
+}
+
+.index-main-contents {
+  color: white;
+}
+
+//場所情報、イベント情報を削除・編集するボタン
+.index-main-place-btns {
+  color: white;
+  width: 90%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+//アイコン、編集、削除のまとめ
+.fa-edit,
+.place-edit-btn,
+.place-delete-btn {
+  width: 60px;
+  float: right;
+}
+
+//アイコン
+.fa-edit {
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  width: 50px;
+  background-color: #FE2370;
+}
+
+//編集、削除ボタン
+.place-edit-btn,
+.place-delete-btn {
+  clear: both;
+  padding: 10px;
+  font-size: 10px;
+  text-shadow: 1px 2px 3px black;
+  text-align: center;
+  color: white;
+  background-color: #FE2370;
+  float: right;
+  display: none;
+}
+
+.place-index-container {
+  width: 100%;
+  min-height: 1500px;
+  display: flex;
+  background-image: image-url("top_img.jpg");
+  background-size: contain;
+}
+
+
+
+//コンテンツのindex大枠
+.index-main-contents {
+  height: auto;
+  width: 80%;
+  background-color: rgba(0, 160, 255, 0.05);
+}
+
+.index-main-content {
+  height: auto;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  border: dashed 2px#FE2370;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000;
+  font-size: 12px;
+  background-color: rgba(0, 128, 255, 0.1);
+}
+
+.index-main-contens-flame-main {
+  height: 60%;
+  word-break: break-all;
+}
+
+//場所名を囲む枠
+.index-main-contens-name {
+  color: rgba(0, 128, 255, 0.95);
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+//場所を囲む枠
+.index-main-contens-area,
+.index-main-contens-address,
+.index-main-contens-line,
+.index-main-contens-url-link,
+.index-main-contens-flame-genre {
+  display: flex;
+  width: 100%;
+  line-height: 35px;
+  padding-left: 10px;
+  height: 17%;
+  color: white;
+  display: block;
+}
+
+.index-main-contens-url-link {
+  color: rgba(241, 86, 49, 0.8);
+  text-decoration: none;
+}
+
+//ジャンル項目のビジュアル
+.index-main-contens-genre {
+  background-color: #FE2370;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+//詳細を囲む枠
+.index-main-contens-flame-place-detail {
+  background-color: rgba(54, 241, 205, 0.2);
+  width: 100%;
+  margin-top: 10px;
+  width: 95%;
+  margin-left: 10px;
+  line-height: 50px;
+  word-break: break-all;
+}
+
+.places-message {
+  color: white;
+  margin-left: 50px;
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #000;
+}
+
+
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  //コンテンツのindex大枠
+  .index-main-contents {
+    width: 100%;
+  }
+
+  .places-message {
+    font-size: 12px;
+  }
+}

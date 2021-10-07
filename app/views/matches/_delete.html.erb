@@ -1,0 +1,19 @@
+<div class="delete-match-info">
+  <p>イベント「<%= match.name %>」を削除します<br>
+  ※削除したイベントは復元できませんのでご注意ください</p>
+
+  <div class="index-main-contens-flame-delete">
+    <!--　placeが中間テーブルで結ばれているレコードを取得  --> 
+    <div class="index-main-contens-delete-summary">
+
+      <%= link_to 'イベント削除', destroy_match_path(match) ,
+      class: 'delete-match-info-link' , 
+      method: :DELETE , remote:true %>
+
+      <a class="delete-match-info-cancel-link">
+        キャンセル
+      </a>
+
+    </div>
+  </div>
+</div>

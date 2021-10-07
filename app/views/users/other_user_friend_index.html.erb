@@ -1,0 +1,25 @@
+<div class="user-search-frame">
+
+  <%= render 'partial/header' %>
+  
+  <div class="user-search-container">
+    <!--　ログインユーザー以外のユーザー情報を渡している  --> 
+    <%= render 'partial/sidebar/other-user-show-sidebar' %>
+
+    <!--　コンテンツ表示  --> 
+    <div class="user-search-contents">
+      <div class="search-friends-list">
+        <ul class="search-friends-list-inner">
+
+          <div class="index-main-contents-search-check">
+            <div class="index-main-contents-search-check-title">
+              <p><%= @other_user.name%>さんの「スポ友」</p>
+            </div>
+          </div>
+          <!-- 自分以外のユーザー情報をレンダリング --> 
+          <%= render 'users/friend_other_users_index' %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+
+<div class="top-modal top-modal-genre">
+
+    <div class="top-modal-flame">
+
+      <div class="top-modal-flame-cancel">
+        <a href="#" class="top-modal-flame-cancel-link">
+          <div class="top-modal-flame-cancel-inner">×</div>
+        </a>
+      </div>
+
+      <div class="top-modal-flame-inner">
+
+        <p class="top-modal-flame-inner-text">ジャンルを選んでください</p>
+
+        <p class="top-modal-flame-inner-err">エラー：チェックを選んでください</p>
+
+        <%= form_tag("/places" , method: :get , class:"top-modal-form") do %>
+          <div class="top-modal-flame-inner-form">
+
+            <div class="check-item">
+          <!-- モーダルに出てくるジャンル検索名のループ -->
+              <% all_genres.each do | all_genre| %>
+                <div class="check-item-detail">
+                  <input type="checkbox" name="genres[]" value="<%= all_genre.id %>"　style="transform:scale(1.0);">
+                  <label><%= all_genre.name %></label>
+                </div>
+              <% end %>
+            </div>
+
+          </div>
+
+          <div class="check-submit">
+            <button type="submit" name="submit">ジャンル検索</button>
+          </div>
+
+        <% end %>
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>

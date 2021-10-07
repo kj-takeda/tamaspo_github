@@ -1,0 +1,61 @@
+<div class="user-show-frame" id="modal-back-ground">
+
+  <%= render 'partial/header' %>
+
+    <div class="user-show-container">
+
+      <%= render 'partial/sidebar/user-show-sidebar' %>
+
+      <!--　コンテンツ表示  --> 
+      <div class="user-show-contents">
+
+        <p class="current_user_name">
+          <%= @current_user.name + "さんのマイページ"%>
+        </p>
+
+        <div class="current_user_links">
+          <%= link_to "#" ,
+          class: 'current_user_delete_link' , 
+          data: {"turbolinks" => false} do %>
+          <div class="current_user_delete">
+            ユーザー情報を削除する
+          </div>
+          <% end %>
+
+          <%= link_to "#" ,
+          class: 'current_user_edit_link' , 
+          data: {"turbolinks" => false} do %>
+          <div class="current_user_edit">
+            ユーザー情報を編集する
+          </div>
+          <% end %>
+        </div>
+
+       <!--　ユーザー情報/削除モーダルをレンダリング  --> 
+        <%= render partial:'users/delete', locals: { current_user: current_user} %>
+
+        <!--　ユーザー情報/編集モーダルをレンダリング  --> 
+        <%= render partial:'devise/registrations/edit', locals: { current_user: current_user} %>
+
+        <!--　ユーザーimageを表示 --> 
+        <div class="show-image01">
+          <%= image_tag @current_user.image.to_s %>
+        </div>
+
+        <div class="index-main-contents-search-check">
+          
+          <%= link_to user_show_match_index_path(@current_user.id) ,
+          class: 'user-show-my_page-match-index-link' , 
+          data: {"turbolinks" => false} do %>
+            <p><%= @current_user.name + "さんが投稿した球技イベント/リストを見る"%></p>
+          <% end %>
+        </div>
+
+        <%= render 'partial/place/my_page_place_index' %>
+
+    </div>
+
+</div>
+
+  
+

@@ -1,0 +1,78 @@
+//いいねユーザーを見る
+//カーソルをポインターに変更
+.good-users-show {
+  cursor: pointer;
+  font-size: 12px;
+}
+
+//エントリーユーザーを見る
+.good-users-show {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: block;
+}
+
+//エントリーボタンの下に表示されるユーザー名まとめ
+.good-users-index {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: black;
+  font-size: 12px;
+  display: none;
+}
+
+.good-users-index-cancel {
+  float: right;
+  height: 32px;
+  width: 40px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FE2370;
+  background-color: white;
+}
+
+.good-users-index-text {
+  padding: 10px;
+  background-color: rgba(254, 35, 112, 1);
+}
+
+//ユーザー名フォローボタンのまとめ
+.good-users-index-detail {
+  padding: 10px;
+  display: flex;
+  font-size: 12px;
+}
+
+//ユーザー名ビジュアル
+.good-users-index-detail p {
+  width: 40%;
+  padding: 20px;
+  word-break: break-all;
+}
+
+//ユーザー名のリンクのビジョュアルを調整
+.good-users-index-detail p a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.good-users-index-btns {
+  width: 30%;
+}
+
+//イベント一覧ページでは非表示ボタンを非表示にする
+.good-users-index-btns a {
+  width: 200px;
+  display: block;
+}
+
+//イベント一覧ページでは非表示ボタンを非表示にする
+.good-users-index-btns .search-friends-list-content-body-btns-delete {
+  display: none;
+}

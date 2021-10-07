@@ -1,0 +1,4 @@
+
+alert('イベント削除をクリック');
+
+$("#delete-<%= @match.id %>").html("<%= j(render partial: 'matches/delete', locals: { match: @match }) %>");

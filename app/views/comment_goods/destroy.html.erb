@@ -1,0 +1,16 @@
+
+<% if current_user.comment_liked_by?(comment.id) %>
+  <%= link_to 'いいね削除' , destroy_comment_good_path(comment.id) ,
+  class:'index-main-contens-comment-content-btn-nice-link02' , 
+  method: :DELETE , remote:true %>
+　 
+  <div class="index-main-contens-comment-content-btn-nice-count">
+    <%= comment.comment_goods.count %>
+  </div>
+
+<% else %>
+  <%= link_to 'いいね' , create_comment_good_path(comment.id) ,
+  class:'index-main-contens-comment-content-btn-nice-link01' ,
+  method: :POST , remote:true %>
+  <div class="index-main-contens-comment-content-btn-nice-count"><%= comment.comment_goods.count %></div>
+<% end %>

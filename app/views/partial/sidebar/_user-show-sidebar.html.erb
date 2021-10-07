@@ -1,0 +1,140 @@
+<div class="user-show-main-sidebar">
+  <% if(user_signed_in?) %>
+    <%= link_to user_show_match_index_path(current_user.id) ,
+    class: 'index-main-sidebar-current-user-link' , 
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-current-user">
+       <%= current_user.name + "さんのマイページ" %>
+      </div>
+    <% end %>
+  <% else%>
+    <%= link_to new_user_session_path , 
+    class: 'index-main-sidebar-current-user-link' , 
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-current-user">
+        <%= current_user.name + "さんのマイページ" %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <!-- ifログインしていれば --> 
+  <% if(user_signed_in?) %>
+    <!-- ターボリンクを解除している=リンク先でjs効かない為 --> 
+    <%= link_to user_search_path(current_user.id) , 
+    class:"index-main-sidebar-current-user-link" ,
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-friends">
+        スポ友を探す
+      </div>
+    <% end %>
+  <% else %>
+    <!-- ターボリンクを解除している=リンク先でjs効かない為 --> 
+    <%= link_to new_user_session_path , 
+    class:"index-main-sidebar-current-user-link" ,
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-friends">
+        スポ友を探す
+      </div>
+    <% end %>
+  <% end %>
+
+  <!-- ifログインしていれば --> 
+  <% if(user_signed_in?) %>
+    <!-- ターボリンクを解除している=リンク先でjs効かない為 --> 
+    <%= link_to new_place_path() , 
+    class:"index-main-sidebar-place-link" ,
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-place">
+        球技スポットを投稿
+      </div>
+    <% end %>
+  <% else %>
+    <!-- ターボリンクを解除している=リンク先でjs効かない為 --> 
+    <%= link_to new_user_session_path , 
+    class:"index-main-sidebar-place-link" ,
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-place">
+        球技スポットを投稿
+      </div>
+    <% end %>
+  <% end %>
+
+  <!-- ifログインしていれば --> 
+  <% if(user_signed_in?) %>
+    <!-- ターボリンクを解除している=リンク先でjs効かない為 --> 
+    <%= link_to root_path() , 
+    class:"index-main-sidebar-place-see-link" ,
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-place-see">
+        球技スポットを検索
+      </div>  
+    <% end %>
+  <% else %>
+    <!-- ターボリンクを解除している=リンク先でjs効かない為 --> 
+    <%= link_to new_user_session_path , 
+    class:"index-main-sidebar-place-see-link" ,
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-place-see">
+        球技スポットを検索
+      </div>
+    <% end %>
+  <% end %>
+
+  <!-- ifログインしていれば --> 
+  <% if(user_signed_in?) %>
+    <%= link_to new_match_path , 
+    class: 'index-main-sidebar-match-link' do %>
+      <div class="index-main-sidebar-match">
+        球技イベント投稿
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path , 
+    class: 'index-main-sidebar-match-link' do %>
+      <div class="index-main-sidebar-match">
+        球技イベント投稿
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if(user_signed_in?) %>
+    <!-- ターボリンクを解除している=リンク先でjs効かない為 --> 
+    <%= link_to matches_path , 
+    class: 'index-main-sidebar-match-see-link' ,
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-match-see">
+        球技イベントを検索
+      </div>
+    <% end %>
+  <% else %>
+    <!-- ターボリンクを解除している=リンク先でjs効かない為 --> 
+    <%= link_to new_user_session_path , 
+    class: 'index-main-sidebar-match-see-link' , 
+    data: {"turbolinks" => false} do %>
+      <div class="index-main-sidebar-match-see">
+        球技イベントを検索
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="user-show-main-sidebar-my-friends">
+    <div class="my-friends-inner">
+      <div class="my-friends-inner-up">
+        <div class="my-friends-inner-up-number">
+          スポ友：<%= @other_users.length %>人
+        </div>
+      </div>
+
+      <div class="my-friends-inner-down">
+        <%= link_to user_friend_index_path(current_user.id) ,
+        class: 'my-friends-inner-down-link' ,
+        method: :get ,
+        data: {"turbolinks" => false} do %>
+          <div class="search-friends-inner-text01">
+            スポ友を見る
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

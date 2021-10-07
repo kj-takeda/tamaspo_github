@@ -1,0 +1,29 @@
+<div class="place-index-frame">
+
+  <%= render 'partial/header_place' %>
+
+  <div class="place-index-container">
+
+    <%= render 'partial/sidebar/index-sidebar' %>
+
+    <!--　コンテンツ表示  --> 
+    <div class="index-main-contents">
+
+      <!-- ジャンル・エリア検索フォームをレンダリング  --> 
+      <%= render 'partial//form/place_link_search_form' %>
+
+      <div class="index-main-contents-search-check">
+        <div class="index-main-contents-search-check-title">
+          <p>全ユーザーが投稿した球技スポットをランダムで表示</p>
+        </div>
+      </div>
+
+      <!-- 場所index情報をレンダリング --> 
+      <%= render 'partial/place/genre_area_check' %>
+
+      <!-- 場所index情報をレンダリング --> 
+      <%= render 'partial/place/place_index' %>
+
+    </div>
+  </div>
+</div>

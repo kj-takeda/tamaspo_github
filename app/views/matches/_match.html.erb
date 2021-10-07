@@ -1,0 +1,45 @@
+<div class="index-main-contens-flame-entry">
+  <!--　placeが中間テーブルで結ばれているレコードを取得  --> 
+  <div class="index-main-contens-entry-summary">
+  <!--　current_userの持つエントリーにmatch.idが存在すれば ==エントリー済み  --> 
+    <% if current_user.entry_by?(match.id) %>
+      <%= link_to 'エントリー解除', destroy_entry_path(match) , class: 'index-main-contens-entry-link01' , method: :DELETE , remote:true %>
+        <div class="contens-entry-count">エントリー数：<%= match.entries.count %></div>
+  
+    <% else %>
+      <%= link_to 'エントリーする', create_entry_path(match), class: 'index-main-contens-entry-link02' , method: :POST, remote:true %>
+         <div class="contens-entry-count">エントリー数：<%= match.entries.count %></div>
+
+    <% end %>
+
+  </div>
+
+</div>
+
+<!--　イベントにエントリーが存在すれば  --> 
+<!--　エントリーしたユーザー要素が表示される  --> 
+<% if match.entries.present? %>
+  <div class="entry-users-show">エントリーユーザーを見る</div>
+
+  <div class="entry-users-index">
+    <div class="entry-users-index-cancel">×</div>
+    <p class="entry-users-index-text">エントリーしたユーザー</p>
+    <% match.users.each do | other_user | %> 
+      <!--　カレントユーザー以外の時は名前とフォローボタン表示  --> 
+      <% if other_user.name != current_user.name %>
+        <div class="entry-users-index-detail">
+          <p><%= link_to other_user.name , user_show_match_index_other_path(other_user.id) %></p>
+      
+          <div id="relation-<%= other_user.id %>" class="entry-users-index-btns">
+            <%= render partial:'users/make_relation', locals: {
+            other_user: other_user}  %>
+          </div>
+        </div>
+      <% else %>
+        <div class="entry-users-index-detail">
+          <p><%= link_to "あなた" , user_show_match_index_path(other_user.id) %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,140 @@
+.user-search-frame {
+  width: 100%;
+  height: auto;
+}
+
+.user-search-container {
+  width: 100%;
+  min-height: 1500px;
+  display: flex;
+  background-image: image-url("top_img.jpg");
+  background-size: 100%;
+}
+
+.user-search-contents {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+//ワード検索文言
+.word-result {
+  font-size: 12px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+  color: white;
+  background-color: black;
+}
+
+.search-friends-list-inner {
+  width: 90%;
+  margin: auto;
+  flex-flow: wrap;
+  color: white;
+  padding: 15px;
+}
+
+.search-friends-list-content {
+  border: dashed 2px#FE2370;
+  display: inline-block;
+  width: 22%;
+  margin-bottom: 20px;
+}
+
+//スポ友を探すページのimageのビジュアル
+.show-image03 {
+  margin: 5px;
+}
+
+.show-image03 img {
+  width: 100%;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+
+.search-friends-list-content-body {
+  margin: 5px;
+  color: white;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.search-friends-list-content-body-name {
+  margin: 5px;
+  color: white;
+  overflow: hidden;
+}
+
+
+//フォーロー・非表示ボタンのまとめ要素
+//友達メッセージ要素
+.search-friends-list-content-body-btns-relation,
+.search-friends-list-content-body-btns-delete,
+.search-friends-list-content-message {
+  border-radius: 20px;
+  height: 70%;
+  width: 90%;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  line-height: 55px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.search-friends-list-content-body-btns-relation02,
+.search-friends-list-content-body-btns-relation01,
+.search-friends-list-content-body-btns-delete02,
+.search-friends-list-content-body-btns-delete01 {
+  text-decoration: none;
+  display: block;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+//フォローするボタンのビジュアル
+.search-friends-list-content-body-btns-relation02 {
+  background-color: #03359D;
+  color: white;
+  text-shadow: 0.5px 0 5px black;
+}
+
+//フォロー解除ボタンのビジュアル
+.search-friends-list-content-body-btns-relation01 {
+  background-color: gray;
+  color: black;
+  text-shadow: 0.5px 0 5px white;
+}
+
+.search-friends-list-content-body-btns-delete01 {
+  background-color: gray;
+  color: black;
+  text-shadow: 0.5px 0 5px white;
+}
+
+.search-friends-list-content-body-btns-delete02 {
+  background-color: yellow;
+  color: white;
+  text-shadow: 0.5px 0 5px black;
+}
+
+.search-friends-list-content-message {
+  background-color: #03359D;
+  color: white;
+  text-shadow: 0.5px 0 5px black;
+}
+
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  .search-friends-list-content {
+    border: dashed 2px#FE2370;
+    display: inline-block;
+    width: 45%;
+    margin-bottom: 20px;
+  }
+
+}

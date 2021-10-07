@@ -1,0 +1,306 @@
+.match-index-frame {
+  width: 100%;
+  position: relative;
+}
+
+.index-main-contents-search-check-titel {
+  height: 200px;
+}
+
+//場所情報、イベント情報を削除・編集するボタン
+.index-main-match-btns {
+  color: white;
+  width: 90%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+//アイコン、編集、削除のまとめ
+.fa-edit,
+.match-edit-btn,
+.match-delete-btn {
+  width: 60px;
+  float: right;
+}
+
+//match削除・編集ボタンを隠す
+.edit-btn,
+.delete-btn {
+  display: none;
+}
+
+//アイコン
+.fa-edit {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  background-color: #FE2370;
+}
+
+//編集、削除ボタン
+.match-edit-btn,
+.match-delete-btn {
+  clear: both;
+  padding: 10px;
+  font-size: 10px;
+  text-shadow: 1px 2px 3px black;
+  text-align: center;
+  color: white;
+  background-color: #FE2370;
+  float: right;
+  display: none
+}
+
+.match-index-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  min-height: 1500px;
+  background-image: image-url("top_img.jpg");
+  background-size: contain;
+}
+
+.index-main-contens-flame-main {
+  width: 100%;
+}
+
+.index-main-contens-flame-main img {
+  width: 100px;
+  height: 100px;
+}
+
+//ユーザー詳細ページの投稿image
+.show-image02 img {
+  width: 100px;
+  height: 100px;
+}
+
+//match投稿者/イベント/予定日/エリアを囲む枠
+.index-main-contens-toukou,
+.index-main-contens-event,
+.index-main-contens-schedule,
+.index-main-contens-area-name {
+  display: flex;
+  width: 100%;
+  line-height: 35px;
+  padding-left: 10px;
+  height: 17%;
+  word-break: break-all;
+}
+
+//matchエリア情報を囲む枠横幅を調整
+.index-main-contens-area-name {
+  width: 95%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgba(241, 86, 49, 0.8);
+}
+
+.index-main-contens-toukou {
+  width: 90%;
+}
+
+//投稿者のビジュアルを変更
+.index-main-contens-toukou,
+.index-main-contens-toukou a {
+  color: rgba(0, 128, 255, 0.95);
+  text-decoration: none;
+}
+
+//イベントの色変更
+.index-main-contens-event {
+  color: yellow;
+}
+
+//詳細を囲む枠
+.index-main-contens-flame-event-detail {
+  background-color: rgba(54, 241, 205, 0.2);
+  width: 100%;
+  margin-top: 10px;
+  width: 95%;
+  margin-left: 10px;
+  word-break: break-all;
+  line-height: 50px;
+}
+
+//エントリーボタン カウントの大枠
+.index-main-contens-flame-entry {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  margin-top: 15px;
+  margin-left: 10px;
+  width: 100%;
+}
+
+//エントリーボタン カウントを横並びにする為の枠
+.index-main-contens-entry-summary {
+  width: 100%;
+  display: flex;
+}
+
+//エントリー済「エントリー解除」ボタン
+.index-main-contens-entry-link01 {
+  text-decoration: none;
+  display: block;
+  color: black;
+  background-color: gray;
+  width: 45%;
+  line-height: 50px;
+}
+
+//エントリーこれから「エントリーする」ボタン
+.index-main-contens-entry-link02 {
+  text-decoration: none;
+  display: block;
+  color: white;
+  background-color: #03359D;
+  width: 45%;
+  line-height: 50px;
+}
+
+//エントリーボタンの横にあるカウント
+.contens-entry-count {
+  width: 45%;
+  line-height: 50px;
+}
+
+.index-main-contens-flame-count-comment {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 90%;
+  margin-left: 10px;
+}
+
+.index-main-contens-entry-comment-count-link,
+.index-main-contens-entry-comment-link {
+  text-decoration: none;
+  display: block;
+  color: rgba(254, 35, 112, 1);
+  width: 50%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+//コメント数
+.index-main-contens-entry-comment-count {
+  display: flex;
+}
+
+.comment-count-number {
+  text-align: center;
+  width: 100%;
+}
+
+.index-main-contens-entry-comment {
+  text-align: center;
+  width: 100%;
+}
+
+
+//エントリーボタンを押した後のビジュアルの変化 //
+.changeBtn {
+  color: black;
+  background-color: gray;
+  color: white;
+  text-decoration: none;
+  width: 50%;
+}
+
+
+//エントリーユーザーを見る
+//カーソルをポインターに変更
+.entry-users-show {
+  cursor: pointer;
+}
+
+//エントリーユーザーを見る
+.entry-users-show {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: block;
+}
+
+//エントリーボタンの下に表示されるユーザー名まとめ
+.entry-users-index {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: black;
+  display: none;
+}
+
+.entry-users-index-cancel {
+  float: right;
+  height: 32px;
+  width: 40px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FE2370;
+  background-color: white;
+}
+
+.entry-users-index-text {
+  padding: 10px;
+  background-color: rgba(254, 35, 112, 1);
+}
+
+//ユーザー名フォローボタンのまとめ
+.entry-users-index-detail {
+  padding: 10px;
+  display: flex;
+}
+
+//ユーザー名ビジュアル
+.entry-users-index-detail p {
+  width: 40%;
+  padding: 20px;
+}
+
+//ユーザー名のリンクのビジョュアルを調整
+.entry-users-index-detail p a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.index-main-contens-flame-main .entry-users-index-btns {
+  width: 30%;
+}
+
+//イベント一覧ページでは非表示ボタンを非表示にする
+.index-main-contens-flame-main .search-friends-list-content-body-btns-relation a {
+  width: 200px;
+  display: block;
+}
+
+//イベント一覧ページでは非表示ボタンを非表示にする
+.index-main-contens-flame-main .search-friends-list-content-body-btns-delete {
+  display: none;
+}
+
+//イベント投稿が表示されない時のメッセージ
+.matchless-message {
+  color: white;
+  margin-left: 50px;
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  background-color: black;
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  .matchless-message {
+    font-size: 12px;
+  }
+}

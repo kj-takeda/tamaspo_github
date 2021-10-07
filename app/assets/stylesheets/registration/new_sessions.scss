@@ -1,0 +1,85 @@
+.new-sessions-frame {
+  width: 100%;
+  height: auto;
+}
+
+.new-sessions-container {
+  width: 100%;
+  height: 100%;
+}
+
+.new-sessions-container-inner {
+  margin: 0 auto;
+  color: white;
+  min-height: 800px;
+  background-color: black;
+  padding: 50px;
+}
+
+//項目要素全体
+.sessions-email,
+.sessions-password {
+  margin: 5px;
+  border-radius: 5px;
+  border: dashed 2px#FE2370;
+}
+
+.sessions-remenber {
+  margin-top: 20px;
+}
+
+//ラベル
+.sessions-email-label,
+.sessions-password-label,
+.sessions-remenber-label {
+  display: block;
+  font-size: 12px;
+  margin: 5px;
+}
+
+//テキスト
+.sessions-email-input,
+.sessions-password-input,
+.sessions-remenber-input {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  width: 50%;
+  height: 50px;
+}
+
+//ログインボタン
+.actions input,
+.edit-password-actions input {
+  width: 50%;
+  height: 50px;
+  background-color: black;
+  border-radius: 5px;
+  margin-top: 20px;
+  color: white;
+}
+
+.links-element {
+  color: white;
+  margin-top: 20px;
+}
+
+.links-element a {
+  font-size: 12px;
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+  .new-sessions-container-inner {
+    padding: 5px;
+  }
+
+  .sessions-email-input,
+  .sessions-password-input {
+    width: 90%;
+  }
+
+  .actions input {
+    width: 100%;
+  }
+
+}

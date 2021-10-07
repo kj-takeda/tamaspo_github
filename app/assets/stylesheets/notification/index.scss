@@ -1,0 +1,36 @@
+.index-main-contents {
+  margin-top: 50px;
+}
+
+.notifications-time {
+  margin-left: 50px;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.notifications-border {
+  min-height: 50px;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  border: dashed 2px#FE2370;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000;
+  font-size: 12px;
+  padding: 5px;
+  background-color: rgba(0, 128, 255, 0.2);
+  overflow: hidden;
+}
+
+.notifications-border a {
+  text-decoration: none;
+  color: white;
+}
+
+//通知履歴のユーザーimg
+.show-image04 img {
+  width: 50px;
+  height: 50px;
+  float: left;
+}

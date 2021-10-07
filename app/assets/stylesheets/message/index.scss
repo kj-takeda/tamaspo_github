@@ -1,0 +1,156 @@
+.message-index-frame {
+  width: 100%;
+}
+
+.message-index-container {
+  width: 100%;
+  display: flex;
+  background-image: image-url("top_img.jpg");
+  background-size: 100%;
+  min-height: 1000px;
+}
+
+//コンテンツのindex大枠
+.message-main-contents {
+  height: auto;
+  width: 80%;
+  background-color: rgba(0, 160, 255, 0.05);
+  padding-top: 20px;
+}
+
+//メッセージを送るユーザー情報
+.message-main-user-info {
+  color: black;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 50px;
+  background-color: cornsilk;
+
+}
+
+////メッセージを送るユーザーimg
+.message-main-image img {
+  margin: 0;
+  width: 100px;
+  margin-top: 20px;
+}
+
+.message-main-text {
+  font-size: 12px;
+  margin-top: 20px;
+
+}
+
+.message-main-content {
+  min-height: 100px;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: dashed 2px#FE2370;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000;
+  font-size: 12px;
+  background-color: rgba(0, 128, 255, 0.2);
+}
+
+.current-user-message,
+.partner-user-message {
+  padding: 10px;
+  word-break: break-all;
+}
+
+.message-main-contents img {
+  margin: 0;
+  width: 50px;
+  height: 50px;
+  margin-left: 50px;
+}
+
+.current-user-name,
+.partner-user-name {
+  margin-left: 50px;
+  font-size: 12px;
+  padding: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 50%;
+  word-break: break-all;
+}
+
+.messages-time {
+  margin-left: 50px;
+  font-size: 12px;
+  padding: 10px;
+  margin-bottom: 30px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 50%;
+  word-break: break-all;
+}
+
+
+
+//メッセージfooterフォームここから
+.footer-form {
+  position: absolute;
+  /*←絶対位置*/
+  /*下に固定*/
+  background-color: blanchedalmond;
+  width: 100%;
+}
+
+.new_message {
+  display: flex;
+  height: 100px;
+}
+
+.message-body-input {
+  width: 90%;
+  display: block;
+}
+
+.message-new-form-submit {
+  width: 10%;
+}
+
+//safariのみ送信ボタン丸くなるため、修正
+input[type="submit"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+  background-color: #000;
+  color: white;
+}
+
+.message-new-form-submit-btn {
+  width: 100%;
+  height: 100px;
+}
+
+//メッセージfooterフォームここまで
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  .message-main-contents {
+    width: 100%;
+  }
+
+  .message-body-input {
+    width: 80%;
+    display: block;
+  }
+
+  .message-main-contents img {
+    margin-left: 20px;
+  }
+
+  .messages-time {
+    margin-left: 20px;
+  }
+
+  .message-new-form-submit {
+    width: 20%;
+  }
+}

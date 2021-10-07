@@ -1,0 +1,50 @@
+<div class="message-index-frame" class="scroll-inner">
+
+  <%= render 'partial/header' %>
+
+  <div class="message-index-container">
+
+    <%= render 'partial/sidebar/user-search-sidebar' %>
+    <!--　コンテンツ表示  --> 
+    <div class="message-main-contents">
+      <div class="message-main-user-info">
+        <div class="message-main-image">
+          <!--　ユーザーimageを表示 --> 
+          <%= image_tag @receive_user.image.to_s %>
+        </div>
+        <!-- <a class="link3" href="#">link</a> --> 
+        <div class="message-main-text">
+          <%= @receive_user.name + "さんとのメッセージのやりとり"%>
+        </div>
+      </div>
+
+      <% @messages.each do |message| %>
+        <!--　カレントユーザーの投稿であれば --> 
+          <%= image_tag message.current.image.to_s %>
+          <div class="message-main-content current-element">
+            <p class="current-user-message"><%= message.body %></p>
+          </div>
+          <p class="current-user-name"><%= message.current.name + "のメッセージ" %></p>
+          <div class="messages-time"><%= message.created_at.strftime('%Y年%-m月%-d日 %-H時%-M分') %></div>
+      <% end %> 
+    </div>
+  </div>
+
+  <footer class="footer-form">
+    <%= form_for(Message.new , url:messages_path() ,data: { remote: true }) do |form| %>
+
+        <%= form.text_area :body , placeholder: 
+        "メッセージ入力してください(200文字まで)", class: "message-body-input" , maxlength:'200'%>
+
+        <div class="message-user-id">
+          <%= form.hidden_field :user_id, value: @receive_user.id , class: "message-user-id-input" %>
+        </div>
+
+        <div class="message-new-form-submit">
+          <%= form.submit value:"送信" , class:"message-new-form-submit-btn" %>
+        </div>
+    
+      <% end %>
+  </footer>
+</div>
+

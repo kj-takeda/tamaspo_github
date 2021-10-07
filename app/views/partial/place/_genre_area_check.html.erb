@@ -1,0 +1,55 @@
+<% if @genre_checks.present? && @area_checks.present? %> 
+  <div class="index-main-contents-search-check">
+    <div class="index-main-contents-search-check-genre">
+      <div class="index-main-contents-search-check-genre-title">ジャンル検索</div>
+      <div class="index-main-contents-search-check-genre-name">
+        <% @genre_checks.each do | genre_check | %> 
+          <a><%= genre_check.name %></a>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="index-main-contents-search-check-area">
+      <div class="index-main-contents-search-check-area-title">エリア検索</div>
+      <div class="index-main-contents-search-check-area-name"> 
+        <% @area_checks.each do | area_check | %> 
+          <a><%= area_check.name %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<!-- ジャンル検索チェックが存在すれば -->
+<% elsif @genre_checks.present? %> 
+  <div class="index-main-contents-search-check">
+    <div class="index-main-contents-search-check-genre">
+      <div class="index-main-contents-search-check-genre-title">ジャンル検索</div>
+      <div class="index-main-contents-search-check-genre-name">
+        <% @genre_checks.each do | genre_check | %> 
+          <a><%= genre_check.name %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<!-- エリア検索チェックが存在すれば -->
+<% elsif @area_checks.present? %> 
+  <div class="index-main-contents-search-check">
+    <div class="index-main-contents-search-check-area">
+      <div class="index-main-contents-search-check-area-title">エリア検索</div>
+      <div class="index-main-contents-search-check-area-name"> 
+        <% @area_checks.each do | area_check | %> 
+          <a><%= area_check.name %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<!-- サイドバーのエリア検索チェックが存在なし場合 -->
+<% else %> 
+  <div class="index-main-contents-search-check">
+    <div class="index-main-contents-search-check-area">
+      <div class="index-main-contents-search-check-area-title">
+      </div>
+      <div class="index-main-contents-search-check-area-name"> 
+      </div>
+    </div>
+  </div>
+<% end %>

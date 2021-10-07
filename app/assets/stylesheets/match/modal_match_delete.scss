@@ -1,0 +1,57 @@
+//イベント削除時に登場する削除ボタンがある要素ビジュアル
+.delete-match-info {
+  position: absolute;
+  z-index: 100px;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: none;
+  height: 350px;
+}
+
+//イベント削除 注意
+.delete-match-info p {
+  padding: 10px;
+  color: red;
+  font-size: 15px;
+}
+
+.delete-match-info-link,
+.delete-match-info-cancel-link {
+  background-color: #FE2370;
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  width: 50%;
+  text-align: center;
+  font-size: 12px;
+}
+
+.delete-match-info-cancel-link {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+  .delete-match-info {
+    width: 100%;
+  }
+
+  //イベント削除 注意
+  .delete-match-info p {
+    font-size: 12px;
+  }
+
+
+  .delete-match-info-link,
+  .delete-match-info-cancel-link {
+    width: 95%;
+  }
+
+}

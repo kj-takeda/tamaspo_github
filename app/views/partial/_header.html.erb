@@ -1,0 +1,103 @@
+  <header class="header">
+
+    <div class="header-innner-up">
+
+      <div class="header-logo">
+        <%= link_to root_path() ,
+        class: 'header-logo-link' , 
+        data: {"turbolinks" => false} do %>
+    　    <p>球スポ</p>
+        <% end %>
+      </div>
+      
+      <div class="header-main">
+
+        <div class="header-main-inner">
+
+          <div class="header-info">
+
+            <div class="header-info-detail">
+              <% if user_signed_in? %>
+                <%= link_to destroy_user_session_path() ,
+                class: 'header-info-detail-link' , 
+                method: :delete , 
+                data: {"turbolinks" => false} do %>
+                  <i class="fa fa-street-view fa-3x" aria-hidden="true"></i>
+                  <p>ログアウト</p>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path() ,
+                class: 'header-info-detail-link' , 
+                data: {"turbolinks" => false} do %>
+                  <i class="fa fa-paw fa-3x" aria-hidden="true"></i>
+                  <p>ログイン</p>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="header-info-detail">
+              <% if user_signed_in? %>
+                <%= link_to user_show_match_index_path(current_user) ,
+                class: 'header-info-detail-link' ,
+                data: {"turbolinks" => false} do %>
+                  <i class="fa fa-user-circle fa-3x" aria-hidden="true"></i>
+                  <p>マイページ</p>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_registration_path() ,
+                class: 'header-info-detail-link' ,
+                data: {"turbolinks" => false} do %>
+                  <i class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
+                  <p>ユーザー登録</p>
+              　<% end %>
+              <% end %>
+            </div>
+
+            <div class="header-info-detail">
+              <% if user_signed_in? %>
+                <%= link_to notifications_path() ,
+                class: 'header-info-detail-link' ,
+                data: {"turbolinks" => false} do %>
+                  <i class="fa fa-info fa-3x" aria-hidden="true"></i>
+                <% end %>
+                   <p>通知</p>
+                   <% if @new_notifications.length > 0%>
+                     <p class="notifications-check">新着あり●</p>
+                   <% end %>
+                  <% if @first_notifications %>
+                    <div class="notifications-first-number"><%= @first_notifications.id %></div>
+                  <% end %>
+              <% else %>
+                <%= link_to new_user_session_path() ,
+                class: 'header-info-detail-link' ,
+                data: {"turbolinks" => false} do %>
+                  <i class="fa fa-info fa-3x" aria-hidden="true"></i>
+                <% end %>
+                 <p>通知</p>
+                 <% if @new_notifications.length > 0%>
+                   <p class="notifications-check">新着あり●<</p>
+                 <% end %>
+                 <% if @first_notifications %>
+                    <div class="notifications-first-number"><%= @first_notifications.id %></div>
+                 <% end %>
+              <% end %>
+            </div>
+
+            <div class="header-info-detail">
+              <%= link_to "#" ,
+                class: 'header-info-detail-link header-menu' ,
+                data: {"turbolinks" => false} do %>
+                  <i class="fa fa-bars fa-3x" aria-hidden="true"></i>
+                   <p>メニュー</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-innner-down">
+       都内の球技スポット・球技イベント・一緒にスポーツを楽しむ「スポ友」探す事ができるwebサービス「球スポ」
+    </div>
+
+  </header>

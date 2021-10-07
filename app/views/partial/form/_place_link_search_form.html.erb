@@ -1,0 +1,98 @@
+<%= form_tag(places_search_index_path , method: :get , class:"index-search-form") do %>
+
+        <div class="index-check-item-flame-genre">
+           <!-- ジャンル名全てを表示するループ --> 
+           <!-- topページでジャンル検索した場合 --> 
+          <% if(@search_genres) %>
+            <% @all_genres.each do | all_genre | %> 
+              <div class="index-check-item-genre">
+                <!-- チェックしたジャンル項目の中とジャンルが一致すればチェックをいれる --> 
+                <% if(@search_genres == all_genre.id) %>
+                  <input type="checkbox" name="genres[]" value="<%= all_genre.id %>"
+                  style="transform:scale(1.0);" checked="checked"> 
+
+                  <%= link_to place_search_genre_link_path(all_genre.id) ,
+                  class: 'index-check-item-genre-link' , 
+                  data: {"turbolinks" => false} do %>
+                    <%= all_genre.name %>
+                  <% end %> 
+                <% else %> 
+                <!-- チェックしたジャンル項目の中とジャンルが一致しなければ普通に表示 --> 
+                  <input type="checkbox" name="genres[]" value="<%= all_genre.id %>"　
+                  style="transform:scale(1.0);">
+                  
+                  <%= link_to place_search_genre_link_path(all_genre.id) ,
+                  class: 'index-check-item-genre-link' , 
+                  data: {"turbolinks" => false} do %>
+                    <%= all_genre.name %>
+                  <% end %> 
+                <% end %> 
+              </div> 
+            <% end %> 
+          <!-- TOPページでジャンル検索しなければ全てチェックなしで表示 --> 
+          <% else %> 
+            <% @all_genres.each do | all_genre | %> 
+              <div class="index-check-item-genre">
+              <!-- チェックしたジャンル項目の中とジャンルが一致しなければ普通に表示 --> 
+                <input type="checkbox" name="genres[]" value="<%= all_genre.id %>"　
+                style="transform:scale(1.0);">
+                  
+                <%= link_to place_search_genre_link_path(all_genre.id) ,
+                class: 'index-check-item-genre-link' , 
+                data: {"turbolinks" => false} do %>
+                  <%= all_genre.name %>
+                <% end %> 
+              </div> 
+            <% end %> 
+          <% end %> 
+        </div>
+
+        <div class="index-check-item-flame-area">
+          <!-- エリア名全てを表示するループ --> 
+           <!-- topページでエリア検索した場合 --> 
+          <% if(@search_areas) %>
+            <% @all_areas.each do | all_area| %> 
+              <div class="index-check-item-area">
+                <!-- チェックしたエリア項目の中とエリアが一致すればチェックをいれる --> 
+                <% if(@search_areas == all_area.id) %>
+                  <input type="checkbox" name="areas[]" value="<%= all_area.id %>"
+                  style="transform:scale(1.0);" checked="checked"> 
+
+                  <%= link_to place_search_area_link_path(all_area.id) ,
+                  class: 'index-check-item-area-link' , 
+                  data: {"turbolinks" => false} do %>
+                    <%= all_area.name %>
+                  <% end %>
+                <% else %> 
+                  <!-- チェックしたエリア項目の中とエリアが一致しなければ普通に表示 --> 
+                  <input type="checkbox" name="areas[]" value="<%= all_area.id %>"　
+                  style="transform:scale(1.0);" > 
+                  <%= link_to place_search_area_link_path(all_area.id) ,
+                  class: 'index-check-item-area-link' , 
+                  data: {"turbolinks" => false} do %>
+                    <%= all_area.name %>
+                  <% end %>
+                <% end %> 
+              </div> 
+            <% end %> 
+           <!-- TOPページでエリア検索しなければ全てチェックなしで表示 --> 
+          <% else %> 
+            <% @all_areas.each do | all_area| %> 
+              <div class="index-check-item-area">
+                <input type="checkbox" name="areas[]" value="<%= all_area.id %>"　
+                style="transform:scale(1.0);" > 
+                <%= link_to place_search_area_link_path(all_area.id) ,
+                class: 'index-check-item-area-link' ,
+                data: {"turbolinks" => false} do %>
+                  <%= all_area.name %>
+                <% end %>
+              </div> 
+            <% end %>
+          <% end %> 
+        </div>
+
+        <div class="index-check-submit">
+          <button type="submit" name="submit">検索</button>
+        </div>
+      <% end %>
+      

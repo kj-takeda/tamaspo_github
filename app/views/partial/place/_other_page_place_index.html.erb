@@ -1,0 +1,62 @@
+<!-- 無限スクロール用のコード  --> 
+<% if @place_indexs.present? %>
+      <div class="scroll-list jscroll">
+
+        <!--　場所をクリックすると詳細に表示  --> 
+        <% @place_indexs.each do | place_index | %> 
+          <div id="delete-<%= place_index.id %>">
+
+            <div class="index-main-content">
+              <div class="index-main-contens-flame-main">
+                <div class="index-main-contens-name">
+                  場所名：<%= place_index.name %>
+                </div>
+              
+                <!--　エリアをクリックすると詳細に表示  --> 
+                <div class="index-main-contens-area">
+                  <%= place_index.area.name %>
+                </div>
+
+                <div class="index-main-contens-address">
+                  <%= place_index.address %>
+                </div>
+
+                <!--　リンクをクリックすると別タブでURL立ち上がる  --> 
+                <a class="index-main-contens-url-link" 
+                href="<%= place_index.url %>" target="_blank" rel="noopener noreferrer">
+                  <p class="index-main-contens-url">LINK</p>
+                </a>
+
+                <!--　placeを持っている駅名を表示  --> 
+                <div class="index-main-contens-line">
+                  最寄駅：<%= place_index.train.name %>◼︎<%= place_index.train.line.name %>
+                </div>
+              </div>
+
+              <div class="index-main-contens-flame-genre">
+                <!--　placeが中間テーブルで結ばれているレコードを取得  --> 
+                <!--　ジャンル名をクリックすると詳細に表示  --> 
+                <% place_index.genres.each do | genre | %>
+                  <a class="index-main-contens-genre">
+                    <%= genre.name %>
+                  </a>
+                <% end %>
+              </div>
+
+              <div class="index-main-contens-flame-place-detail">
+                <!--　placeが中間テーブルで結ばれているレコードを取得  --> 
+                <div class="index-main-contens-place-detail">
+                  <%= place_index.place_detail %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+          <!-- 無限スクロール用のコード --> 
+          <%= paginate @place_indexs , remote: true %>
+      </div>
+<% else %>
+  <p class="places-message">現在、<%= @other_user.name + "さん"%>が投稿した球技スポットはありません</p>
+
+<% end %>
+

@@ -1,0 +1,72 @@
+//コメント編集 モーダルCSS　ここから------------------------------------
+.edit-comment-info {
+  position: absolute;
+  z-index: 100px;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  width: 68%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: none;
+  height: 450px;
+}
+
+//イベント編集 注意
+.edit-comment-info p {
+  padding: 10px;
+  color: red;
+  font-size: 15px;
+}
+
+.comment-body-input-edit {
+  height: 150px;
+  width: 400px;
+}
+
+.edit-comment-info-link,
+.edit-comment-info-cancel-link {
+  background-color: #FE2370;
+  margin-top: 20px;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  color: white;
+  width: 53%;
+  text-align: center;
+  font-size: 12px;
+}
+
+.edit-comment-info-cancel-link {
+  background-color: rgba(100, 100, 100, 0.8);
+  width: 50%;
+}
+
+//コメント編集 モーダルCSS　ここまで------------------------------------
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+  .edit-comment-info {
+    width: 90%;
+    margin: 0;
+  }
+
+  .comment-body-input {
+    width: 90%;
+    margin: 0;
+  }
+
+  .edit-comment-info-link {
+    width: 54%;
+  }
+
+  .edit-comment-info-link,
+  .edit-comment-info-cancel-link {
+    width: 100%;
+  }
+
+  .edit-comment-info-cancel-link {
+    width: 95%;
+  }
+}

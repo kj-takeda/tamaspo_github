@@ -1,0 +1,45 @@
+
+<div class="top-frame">
+
+  <%= render 'partial/modal/modal-genre' , all_genres: @all_genres%>
+
+  <%= render 'partial/modal/modal-area' , all_areas: @all_areas%>
+
+    <%= render 'partial/header' %>
+
+    <div class="top-container">
+      <%= render 'partial/sidebar/index-sidebar' %>
+
+      <div class="top-btns">
+        <!-- 「ユーザー編集」の登録成功flashメッセージが存在する時のみ表示 --> 
+        <% if flash[:user_success] %>
+          <div class="flash-success-message">
+            <p><%= flash[:user_success] %></p>
+          </div>
+        <% end %>
+
+        <!--　コンテンツ表示  --> 
+        <div class="index-main-contents">
+          
+        <div class="top-btns-btn">
+        
+          <a class="top-btns-btn-link01"  href="">
+            <div class="top-button top-button-genre">球スポ×ジャンル検索</div>
+          </a>
+        </div>
+
+        <div class="top-btns-btn">
+          <a class="top-btns-btn-link02"  href="">
+            <div class="top-button top-button-area">球スポ×エリア検索
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+</div>

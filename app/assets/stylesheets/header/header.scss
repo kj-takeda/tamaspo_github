@@ -1,0 +1,98 @@
+.header {
+  position: sticky;
+  top: 0px;
+  z-index: 200px;
+  color: white;
+}
+
+.header-innner-up {
+  margin: 0 auto;
+  display: flex;
+}
+
+.header-logo {
+  width: 20%;
+  background-color: #FE2370;
+}
+
+//ロゴリンク 球スポ
+.header-logo-link {
+  text-decoration: none;
+}
+
+.header-logo p {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 50px;
+}
+
+
+.header-main {
+  width: 85%;
+  background-color: black;
+}
+
+.header-main-inner {
+  display: flex;
+}
+
+.header-info {
+  display: flex;
+  width: 100%;
+  color: white;
+}
+
+.header-info-message {
+  width: 20%;
+  font-size: 12px;
+}
+
+.header-info-detail {
+  font-size: 10px;
+  text-align: center;
+  width: 33%;
+  padding-top: 20px;
+}
+
+//header リンク
+.header-info-detail-link {
+  text-decoration: none;
+  color: white;
+}
+
+//ヘッダー通知の新着
+.notifications-check {
+  color: red;
+}
+
+//通知更新のための数値
+.notifications-first-number {
+  display: none;
+}
+
+//tamaspo紹介文
+.header-innner-down {
+  margin: 0 auto;
+  display: flex;
+  background-color: #FE2370;
+  font-size: 12px;
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+  .header-logo p {
+    font-size: 15px;
+  }
+
+  .header-info-message {
+    font-size: 8px;
+  }
+
+  //アイコンの下の文字
+  .header-info-detail {
+    font-size: 10px;
+  }
+
+}

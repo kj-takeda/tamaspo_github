@@ -1,0 +1,41 @@
+<div class="user-show-frame" id="modal-back-ground">
+
+  <%= render 'partial/header' %>
+
+    <div class="user-show-container">
+
+      <%= render 'partial/sidebar/other-user-show-sidebar' %>
+
+      <!--　コンテンツ表示  --> 
+      <div class="user-show-contents">
+        
+        <p class="current_user_name">
+          <%= @other_user.name + "さんのマイページ"%>
+        </p>
+
+        <div id="relation-<%= @other_user.id %>">
+          <%= render partial:'make_relation', locals: { other_user: @other_user}  %>
+        </div>
+        
+        <div class="show-image01">
+          <!--　ユーザーimageを表示 --> 
+          <%= image_tag @other_user.image.to_s %>
+        </div>
+
+        <div class="index-main-contents-search-check">
+          
+          <%= link_to user_show_place_index_other_path(@other_user.id) ,
+          class: 'user-show-my_page-place-index-link' , 
+          data: {"turbolinks" => false} do %>
+            <p><%= @other_user.name + "さんが投稿した球技スポット/リストを見る"%></p>
+          <% end %>
+        </div>
+
+        <%= render 'partial/match/other_page_match_index' %>
+
+        <div>
+
+      </div>
+    </div>
+
+</div>

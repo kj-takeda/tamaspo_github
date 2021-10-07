@@ -1,0 +1,74 @@
+
+<div class="index-main-contens-flame-comment">
+  <%= form_for(Comment.new , url:comments_path() ,
+  method:"post" , data: { remote: true }) do |form| %>
+
+    <%= form.text_area :body , placeholder: 
+    "コメント入力してください(200文字まで)", class: "comment-body-input" , maxlength:'200'%>
+
+    <div class="comment-match-id">
+      <%= form.hidden_field :match_id, value: match.id , class: "comment-match-id-input" %>
+    </div>
+
+    <div class="comment-new-form-submit">
+      <%= form.submit value:"コメントする" , class:"comment-new-form-submit-btn" %>
+    </div>
+
+  <% end %>
+
+  <div class='index-main-contens-comment-summary'>
+    <ul class='index-main-contens-comment-list'>
+      <% match.comments.each_with_index.reverse_each do |comment, index| %>
+
+        <div class="index-main-contens-comment-content">
+          <!--　コメント自動更新用 --> 
+          <div class="comment-reload" id="comment-<%= comment.id %>">
+            <div id="delete-<%= comment.id %>">
+          
+              <!--　コメント削除モーダル箇所をレンダリング  --> 
+              <%= render partial:'comments/delete', locals: { comment: comment} %>
+
+              <!--　コメント編集モーダル箇所をレンダリング  --> 
+              <%= render partial:'comments/edit', locals: { comment: comment} %>
+            
+              <% if comment.user_id == current_user.id %>
+           
+                <ul class="index-main-comment-btns">
+                  <a class="comment-fa-edit-link"><i class="fas fa-edit fa-lg"></i></a>
+                  <a class="comment-edit-btn-link"><div class="comment-edit-btn">編集</div></a>
+                  <a class="comment-delete-btn-link"><div class="comment-delete-btn">削除</div></a>
+                </ul>
+              <% end %>
+
+              <li class="index-main-contens-comment-content-text">
+                <p><%= comment.body %><p>
+              </li>
+
+              <li class="index-main-contens-comment-content-user">
+                <div class="comment-user-image">
+                  <%= image_tag comment.user.image.to_s %>
+                </div>
+                <% if comment.user.name != current_user.name %>
+                  <p class="comment-user-text">
+                    <%= link_to comment.user.name + "さんのコメント" , user_show_match_index_other_path(comment.user.id) %>
+                  </p>
+                <% else %>
+                   <p class="comment-user-text">
+                     <%= link_to "あなたのコメント" , user_show_match_index_path(comment.user.id) %>
+                   </p>
+                <% end %>
+              </li>
+
+              <div class=index-main-contens-comment-content-btns>
+                <div id="good-<%= comment.id %>" , class="index-main-contens-comment-content-btn-nice">
+                <!--　コメントいいね箇所をレンダリング  --> 
+                  <%= render partial:'comment_goods/comment_good', locals: { comment: comment}  %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </ul>
+
+  </div>
+</div>

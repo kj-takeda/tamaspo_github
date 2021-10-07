@@ -1,0 +1,26 @@
+<div class="search-friends-list-content-body-btns">
+  <div class="search-friends-list-content-body-btns-relation">
+    <!--　current_userが申請を送っていたら --> 
+    <% if current_user.followed_by?(other_user , current_user) %>
+      <%= link_to 'フォロー解除', destroy_relationship_path(other_user) ,
+      class: 'search-friends-list-content-body-btns-relation01' , method: :DELETE , remote:true %>
+    <% else %>
+      <%= link_to 'フォローする', create_relationship_path(other_user), 
+      class: 'search-friends-list-content-body-btns-relation02' , method: :POST, remote:true %>
+    <% end %>
+  </div>
+
+  <div class="search-friends-list-content-body-btns-delete"> 
+    <!--　current_userが申請を送っていたら --> 
+    <% if current_user.hided_by?(other_user , current_user) %>
+      <%= link_to '非表示解除', destroy_hide_lists_path(other_user) ,
+      class: 'search-friends-list-content-body-btns-delete01' , method: :DELETE , remote:true %>
+    <% else %>
+      <%= link_to '情報非表示', create_hide_lists_path(other_user) ,
+      class: 'search-friends-list-content-body-btns-delete02' ,
+       method: :POST, remote:true %>
+    <% end %>
+  </div>
+
+</div>
+

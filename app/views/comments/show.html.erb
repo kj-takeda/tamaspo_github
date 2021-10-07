@@ -1,0 +1,61 @@
+<div class="match-index-frame">
+
+  <%= render 'partial/header' %>
+
+  <div class="match-index-container">
+
+    <%= render 'partial/sidebar/index-sidebar' %>
+
+    <div class="index-main-contents">
+
+      <li class="index-main-contens-comment-content-text">
+        <%= @comment.body %>
+      </li>
+
+      <li class="index-main-contens-comment-content-user">
+        <div class="comment-user-image">
+          <%= image_tag @comment.user.image.to_s %>
+        </div>
+        <p class="comment-user-text">
+          <%= @comment.user.name %>のコメント
+        </p>
+      </li>
+
+      <div class=index-main-contens-comment-content-btns>
+        <div id="good-<%= @comment.id %>" , class="index-main-contens-comment-content-btn-nice">
+        <!--　コメントいいね箇所をレンダリング  --> 
+          <%= render partial:'comment_goods/comment_good', locals: { comment: @comment}  %>
+        </div>
+      </div>
+
+      <!--　コメントにいいねしたユーザーが存在すれば --> 
+      <% if @other_user.present? %>
+        <div class="good-users-show">「いいね！」したユーザーを見る</div>
+
+        <div class="good-users-index">
+          <div class="good-users-index-cancel">×</div>
+          <p class="good-users-index-text">「いいね！」したユーザー</p>
+          
+          <% @other_user.each do | other_user | %> 
+            <!--　カレントユーザー以外の時は名前とフォローボタン表示  --> 
+            <% if other_user.name != current_user.name %>
+              <div class="good-users-index-detail">
+                <p><%= link_to other_user.name , user_show_match_index_other_path(other_user.id) %></p>
+      
+                <div id="relation-<%= other_user.id %>" class="good-users-index-btns">
+                  <%= render partial:'users/make_relation', locals: {
+                  other_user: other_user}  %>
+                </div>
+              </div>
+            <% else %>
+              <div class="good-users-index-detail">
+                <p><%= link_to "あなた" , user_show_match_index_path(other_user.id) %></p>
+              </div>
+            <% end %>
+          <% end %>
+       　</div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+//イベント削除時に登場する削除ボタンがある要素ビジュアル
+.edit-user-info {
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 350px;
+  display: none;
+}
+
+//イベント削除 注意
+.edit-user-info p {
+  padding: 10px;
+  color: red;
+  font-size: 15px;
+}
+
+.edit-user-info-link,
+.edit-user-info-cancel-link {
+  background-color: #FE2370;
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  width: 50%;
+  text-align: center;
+  font-size: 12px;
+}
+
+.edit-user-info-cancel-link {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  .edit-user-info p {
+    font-size: 12px;
+  }
+
+  //イベント削除時に登場する削除ボタンがある要素ビジュアル
+  .edit-user-info {
+    width: 100%;
+  }
+
+  .edit-user-info-link,
+  .edit-user-info-cancel-link {
+    width: 95%;
+  }
+
+}

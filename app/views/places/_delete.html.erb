@@ -1,0 +1,19 @@
+<div class="delete-place-info">
+  <p>場所「<%= place_index.name %>」を削除します<br>
+  ※削除したイベントは復元できませんのでご注意ください</p>
+
+  <div class="index-main-places-flame-delete">
+    <!--　placeが中間テーブルで結ばれているレコードを取得  --> 
+    <div class="index-main-places-delete-summary">
+
+      <%= link_to '場所削除', destroy_place_path(place_index) ,
+      class: 'delete-place-info-link' , 
+      method: :DELETE , remote:true %>
+
+      <a class="delete-place-info-cancel-link">
+        キャンセル
+      </a>
+
+    </div>
+  </div>
+</div>

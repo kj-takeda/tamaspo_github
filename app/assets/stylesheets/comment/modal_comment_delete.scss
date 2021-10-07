@@ -1,0 +1,56 @@
+//コメント削除 モーダルCSS　ここから-----------------------------
+.delete-comment-info {
+  position: absolute;
+  z-index: 100px;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  width: 68%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: none;
+  height: 300px;
+}
+
+//イベント削除 注意
+.delete-comment-info p {
+  padding: 10px;
+  color: red;
+  font-size: 15px;
+}
+
+.delete-comment-info-link,
+.delete-comment-info-cancel-link {
+  background-color: #FE2370;
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  width: 50%;
+  text-align: center;
+  font-size: 12px;
+}
+
+.delete-comment-info-cancel-link {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+//コメント削除 モーダルCSS　ここまで------------------------------------
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+  .delete-comment-info {
+    width: 90%;
+    margin: 0;
+  }
+
+  .delete-comment-info-link,
+  .delete-comment-info-cancel-link {
+    width: 95%;
+  }
+
+
+
+
+}

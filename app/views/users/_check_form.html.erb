@@ -1,0 +1,59 @@
+
+<p class="registration-kakunin-message">
+  以下のユーザー情報を削除します<br>
+  「ユーザー情報削除ボタン」をクリックしてください
+</p>
+
+<!--画像送信できるようにmultipart: trueを追加 -->
+<div class="registration-kakunin">
+
+    <div class="registration-name">
+      <div class="registration-name-label">ユーザーネーム</div>
+      <div class="registration-name-input">
+        <%= @user.name %>
+      </div>
+    </div>
+
+    <div class="registration-email">
+      <div class="registration-email-label">
+        メールアドレス
+      </div>
+      <div class="registration-email-input">
+        <%= @user.email %>
+      </div>
+    </div>
+  
+    <div class="registration-image">
+      <div class="registration-image-label">
+        画像
+      </div>
+      
+      <!--　ユーザーimageを表示 --> 
+      <%= image_tag @user.image.to_s %>
+    
+    </div>
+
+    <div class="registration-introduction">
+      <div class="registration-introduction-label">
+        自己紹介
+      </div>
+      <div class="registration-introduction-input">
+        <%= @user.introduction %>
+      </div>
+    </div>
+  
+    <div class="registration-genre">
+      <div class="registration-genre-label">
+        ジャンル
+      </div>
+      <div class="registration-genre-check">
+        <%= @user.genre.name %>
+      </div>
+    </div>
+    <div class="action">
+      <%= link_to '削除', user_destroy_path(current_user) ,
+      class: 'actions-link' %>
+    </div>
+  
+ </div>
+

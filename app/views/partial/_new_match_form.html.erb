@@ -1,0 +1,116 @@
+ <%= form_with model: Match.new , local: true, class: "match-new-form" do |form| %>
+
+  <%= render 'layouts/error_messages' %>
+
+  <% if flash[:match_failure] %>
+    <div class="match-name">
+      <p class="must">[必須]</p>
+      <%= form.label :イベント名 , class: "match-name-label" %>
+      <%= form.text_area :name , placeholder: "イベント名を入力してください(50文字以内)", class: "match-name-input" , size: "30x5" , value:flash[:match_failure]["name"] , maxlength:'50'%>
+    </div>
+  <% else %>
+    <div class="match-name">
+      <p class="must">[必須]</p>
+      <%= form.label :イベント名 , class: "match-name-label" %>
+      <%= form.text_area :name , placeholder: "イベント名を入力してください(50文字以内)", class: "match-name-input" , size: "30x5" , maxlength:'50'%>
+    </div>
+  <% end %>
+
+  <% if flash[:match_failure] %>
+    <div class="match-event-detail">
+      <p class="must">[必須]</p>
+      <%= form.label :イベントの詳細 , class: "match-event-detail-label" %>
+      <%= form.text_area :event_detail , placeholder: "イベントの詳細を入力してください(500文字以内)", class: "match-event-detail-input" , size: "50x10" , value:flash[:match_failure]["event_detail"] , maxlength:'500'%>
+    </div>
+  <% else %>
+    <div class="match-event-detail">
+      <p class="must">[必須]</p>
+      <%= form.label :イベントの詳細 , class: "match-event-detail-label" %>
+      <%= form.text_area :event_detail , placeholder: "イベントの詳細を入力してください(500文字以内)", class: "match-event-detail-input" , size: "50x10" , maxlength:'500' %>
+    </div>
+  <% end %>
+
+
+  <% if flash[:match_failure] %>
+    <div class="match-day">
+      <p class="must">[必須]</p>
+      <%= form.label :開催日 , class: "match-day-label" %>
+      <%= form.date_field :day ,class: "match-day-input" ,
+      value:flash[:match_failure]["day"] %>
+    </div>
+  <% else %>
+    <div class="match-day">
+      <p class="must">[必須]</p>
+      <%= form.label :開催日 , class: "match-day-label" %>
+      <%= form.date_field :day ,class: "match-day-input"%>
+  <% end %>
+
+  <% if flash[:match_failure] %>
+    <div class="match-time">
+      <p class="must">[必須]</p>
+      <%= form.label :開催時間 , class: "match-time-label" %>
+      <%= form.time_select :time ,class: "match-time-input" , value:flash[:match_failure]["time"]%>
+    </div>
+  <% else %>
+    <div class="match-time">
+      <p class="must">[必須]</p>
+      <%= form.label :開催時間 , class: "match-time-label" %>
+      <%= form.time_field :time ,class: "match-time-input" %>
+    </div>
+  <% end %>
+
+  <% if flash[:match_failure] %>
+    <div class="match-area-info">
+      <p class="must">[必須]</p>
+      <%= form.label :エリア , class: "match-area-info-label" %>
+      <%= form.collection_select(:area_id , Area.all , :id,
+     :name , include_blank:"エリアを選択してください" , selected:flash[:area_id]) %>
+    </div>
+  <% else %>
+    <div class="match-area-info">
+      <p class="must">[必須]</p>
+      <%= form.label :エリア , class: "match-area-info-label" %>
+      <%= form.collection_select(:area_id , Area.all , :id,
+     :name , include_blank:"エリアを選択してください") %>
+    </div>
+  <% end %>
+
+  <% if flash[:match_failure] %>
+    <div class="match-area-detail">
+      <p class="must">[必須]</p>
+      <%= form.label :開催場所の詳細 , class: "match-area-detail-label" %>
+      <%= form.text_area :area_detail , placeholder: "(例)新宿区◯◯1-1 ◯◯公園(100文字以内)", class: "match-area-detail-input" , size: "50x5" , 
+      value:flash[:match_failure]["area_detail"] , maxlength:'100'%>
+    </div>
+  <% else %>
+    <div class="match-area-detail">
+      <p class="must">[必須]</p>
+      <%= form.label :開催場所の詳細 , class: "match-area-detail-label" %>
+      <%= form.text_area :area_detail , placeholder: "(例)新宿区◯◯1-1 ◯◯公園(100文字以内)", class: "match-area-detail-input" , size: "50x5" , maxlength:'100' %>
+    </div>
+  <% end %>
+
+  <% if flash[:match_failure] %>
+    <div class="match-genre-info">
+      <p class="must">[必須]</p>
+      <%= form.label :ジャンル , class: "match-genre-info-label" %>
+      <%= form.collection_radio_buttons(:genre_id , Genre.all , :id, :name , include_hidden: false , checked:flash[:genre_id]) %>
+    </div>
+  <% else %>
+    <div class="match-genre-info">
+      <p class="must">[必須]</p>
+      <%= form.label :ジャンル , class: "match-genre-info-label" %>
+      <%= form.collection_radio_buttons(:genre_id , Genre.all , :id, :name , include_hidden: false) %>
+    </div>
+  <% end %>
+
+  <div class="match-user_id">
+    <%= form.hidden_field :user_id, value: @current_user_id , class: "match-user_id-input"%>
+  </div>
+
+  <div class="match-new-form-submit">
+    <%= form.submit value:"イベント登録" , class:"match-new-form-submit-btn" %>
+  </div>
+
+<% end %>
+

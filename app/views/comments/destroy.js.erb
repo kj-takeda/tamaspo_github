@@ -1,0 +1,6 @@
+
+setTimeout(function () {
+      location.reload();
+  }, 5000);
+
+$("#delete-<%= @comment.id %>").html("<%= j(render partial: 'comments/delete', locals: { comment: @comment }) %>");

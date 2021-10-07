@@ -1,0 +1,27 @@
+<div class="edit-comment-info">
+  <p>コメント「<%= comment.body %>」を編集します<br>
+  ※コメントを編集して上書き</p>
+
+  <div class="index-main-contens-flame-edit">
+    <!--　placeが中間テーブルで結ばれているレコードを取得  --> 
+    <div class="index-main-comment-edit-summary">
+
+      <%= form_with url:edit_comment_path(comment) , method: :get ,
+      class: "edit_comment" , data: { remote: true }  do |f| %>
+
+        <%= f.text_field :body , 
+        class: "comment-body-input" , value: comment.body , maxlength:'200'%>
+
+        <%= f.hidden_field :comment_id, value: comment.id , class: "comment-id-input" %>
+
+        <%= f.submit "コメント編集" ,class:"edit-comment-info-link"%>
+
+        <a class="edit-comment-info-cancel-link">
+          キャンセル
+        </a>
+      <% end %>
+       
+    </div>
+  </div>
+</div>
+

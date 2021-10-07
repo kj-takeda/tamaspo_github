@@ -1,0 +1,28 @@
+//情報一覧上に表示される検索ジャンルとエリア
+.index-main-contents-search-check {
+  height: auto;
+  margin: 0 auto;
+  width: 90%;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 12px;
+}
+
+.index-main-contents-search-check-area-title,
+.index-main-contents-search-check-genre-title {
+  width: 50%;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.index-main-contents-search-check-genre-name a,
+.index-main-contents-search-check-area-name a {
+  background-color: #FE2370;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 10px;
+}

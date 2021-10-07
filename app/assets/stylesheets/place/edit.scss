@@ -1,0 +1,42 @@
+.edit-place-frame {
+  width: 100%;
+  height: auto;
+}
+
+.edit-place-container {
+  width: 100%;
+  height: 100%;
+}
+
+//フォーム全体を囲む枠
+.edit-place-container-inner {
+  margin: 0 auto;
+  color: white;
+  background-color: black;
+  padding: 50px;
+}
+
+//フォームそのもの
+.place-edit-form {
+  margin-top: 25px;
+}
+
+.place-edit-form-submit-btn {
+  width: 50%;
+  height: 50px;
+  background-color: #F7FAFA;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+  .edit-place-container-inner {
+    padding: 5px;
+  }
+
+  .place-edit-form-submit-btn {
+    width: 100%;
+  }
+
+}

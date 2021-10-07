@@ -1,0 +1,114 @@
+.new-match-frame {
+  width: 100%;
+  height: auto;
+}
+
+.new-match-container {
+  width: 100%;
+  height: 100%;
+}
+
+//フォーム全体を囲む枠
+.new-match-container-inner {
+  margin: 0 auto;
+  color: white;
+  background-color: black;
+  padding: 50px;
+}
+
+//場所名全体
+.match-name,
+.match-event-detail,
+.match-day,
+.match-time,
+.match-area-info,
+.match-area-detail,
+.match-genre-info,
+.match-area-detail {
+  margin: 5px;
+  border-radius: 5px;
+  border: dashed 2px#FE2370;
+}
+
+//場所名ラベル
+.match-name-label,
+.match-event-detail-label,
+.match-day-label,
+.match-time-label,
+.match-area-info-label,
+.match-area-detail-label,
+.match-genre-info-label {
+  display: block;
+  font-size: 12px;
+  margin: 5px;
+}
+
+//ジャンル選択のスペース調整
+.match-genre-info label {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.match-genre-info {
+  padding-bottom: 10px;
+}
+
+.must {
+  color: red;
+  font-size: 12px;
+}
+
+//場所名テキスト
+.match-name-input,
+.match-event-detail-input,
+.match-day-input,
+.match-time-input,
+.match-area-detail-input {
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+}
+
+#match_area_id,
+#match_genre_id {
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+}
+
+.match-new-form-submit-btn {
+  width: 50%;
+  height: 50px;
+  background-color: #F7FAFA;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+#match_area_id,
+#match_genre_id {
+  width: 80%;
+  height: 30px;
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  .match-name-input,
+  .match-event-detail-input,
+  .match-day-input,
+  .match-time-input,
+  .match-area-detail-input,
+  .match-new-form-submit-btn {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+  }
+
+  .new-match-container-inner {
+    padding: 10px;
+  }
+
+}

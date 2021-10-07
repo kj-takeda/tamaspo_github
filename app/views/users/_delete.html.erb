@@ -1,0 +1,24 @@
+<div class="delete-user-info">
+  <p>ユーザー情報「<%= current_user.name %>」を削除します<br>
+  ※削除したユーザー情報は復元できませんのでご注意ください</p>
+
+  <div class="index-main-contens-flame-delete">
+    <!--　placeが中間テーブルで結ばれているレコードを取得  --> 
+    <div class="index-main-contens-delete-summary">
+
+      <%= link_to user_check_path(current_user) ,
+        class: 'delete-user-info-link', 
+        data: {"turbolinks" => false} do %>
+
+        <div class="index-main-sidebar-delete-user-info">
+          ユーザー情報削除
+        </div>
+      <% end %>
+    
+      <a class="delete-user-info-cancel-link">
+        キャンセル
+      </a>
+
+    </div>
+  </div>
+</div>

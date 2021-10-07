@@ -1,0 +1,2 @@
+module HideListsHelper
+end

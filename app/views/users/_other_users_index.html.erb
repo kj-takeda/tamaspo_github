@@ -1,0 +1,31 @@
+<!-- 無限スクロール用のコード  --> 
+          <div class="scroll-list jscroll">
+
+            <% @other_users.each do |other_user| %>
+              <li class="search-friends-list-content">
+                <div class="search-friends-list-content-img">
+                  <!--　ユーザーimageを表示 --> 
+                  <div class="show-image03">
+                    <%= image_tag other_user.image.to_s %>
+                  </div>
+                </div>
+
+                <div class="search-friends-list-content-body">
+                  <%= link_to user_show_match_index_other_path(other_user) ,
+                  class: 'search-friends-inner-link01' ,
+                  data: {"turbolinks" => false} do %>
+                
+                    <div class="search-friends-list-content-body-name">
+                      <%= other_user.name %>
+                    </div>
+                  <% end %>
+
+                  <div id="relation-<%= other_user.id %>">
+                    <%= render partial:'make_relation', locals: { other_user: other_user}  %>
+                  </div>
+                </div>
+              </li>
+            <% end %> 
+              <!-- 無限スクロール用のコード --> 
+              <%= paginate @other_users , remote: true %>
+          </div>

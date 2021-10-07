@@ -1,0 +1,138 @@
+.user-show-frame {
+  width: 100%;
+  position: relative;
+}
+
+.user-show-container {
+  min-height: 1500px;
+  display: flex;
+  background-image: image-url("top_img.jpg");
+  background-size: contain;
+  width: 100%;
+}
+
+.user-show-contents {
+  height: auto;
+  width: 100%;
+}
+
+//○○さんのマイページ
+.current_user_name {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  word-break: break-all;
+  position: sticky;
+  top: 100px;
+}
+
+//自分以外のユーザーの詳細ページのフォーローボタンの横幅合わせる
+.user-show-contents .search-friends-list-content-body-btns-relation {
+  width: 35%;
+  margin-left: 40px;
+}
+
+//自分以外のユーザーの詳細ページには非常時ボタン表示させない
+.user-show-contents .search-friends-list-content-body-btns-delete {
+  display: none;
+}
+
+//ユーザー情報　削除　編集ボタン要素
+.current_user_links {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.current_user_delete,
+.current_user_edit {
+  margin-right: 20px;
+  font-size: 15px;
+  color: #03359D;
+  display: block;
+}
+
+//ユーザー画像
+.show-image01 img {
+  width: 100px;
+  height: 100px;
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.index-main-contents-search-check-title {
+  word-break: break-all;
+  width: 90%;
+  margin-bottom: 20px;
+  background-color: #FE2370;
+  ;
+}
+
+.user-show-my_page-place-index-link {
+  display: block;
+  word-break: break-all;
+}
+
+.user-show-my_page-place-index-link p,
+.user-show-my_page-match-index-link p {
+  word-break: break-all;
+  width: 50%;
+  background-color: #03359D;
+}
+
+.index-main-contents-search-check {
+  word-break: break-all;
+}
+
+.user-show-my_page-match-index-link p {
+  margin-right: 30px;
+}
+
+//ユーザーページの場所リンク
+.user-show-my_page-place-index-link,
+.user-show-my_page-match-index-link {
+  text-decoration: none;
+  color: white;
+}
+
+.user-show-my_page-place-index,
+.user-show-my_page-match-index {
+  height: 50px;
+  font-size: 12px;
+  line-height: 50px;
+  padding-left: 10px;
+  margin-left: 50px;
+  width: 50%;
+  background-color: #03359D;
+}
+
+/* 800px以下に適用されるCSS（スマホタブレット用） */
+@media screen and (max-width: 800px) {
+
+  //○○さんのマイページ
+  .current_user_name {
+    font-size: 15px;
+  }
+
+  //フォロービジュアル
+  .user-show-contents .search-friends-list-content-body-btns-relation {
+    width: 35%;
+    margin-left: 25px;
+  }
+
+  .current_user_delete,
+  .current_user_edit {
+    font-size: 12px;
+  }
+
+  //ユーザー画像
+  .user-show-contents img {
+    margin-left: 25px;
+  }
+
+}
