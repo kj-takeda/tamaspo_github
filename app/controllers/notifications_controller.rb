@@ -16,10 +16,12 @@ class NotificationsController < ApplicationController
 
   end
 
+  ##**アピールコードここから##  
   def update
-    #カレント以外のユーザーが起こしたアクションレコード
+    #カレント以外のユーザーが起こした通知レコード
     @current_notifications = Notification.where.not(visitor_id: current_user.id).where(visited_id: current_user.id)
-
+    #ブラウザに表示されている通知よりidが大きい通知があればデータを取得
+    #データがあれば自動更新される
     @new_notifications = @current_notifications.where('id > ?', params[:notifications_id].to_i)
 
     ##json形式でレスポンス返す
@@ -27,16 +29,21 @@ class NotificationsController < ApplicationController
     format.json
     end
   end
-
+ 
   private
 
+  #カレントユーザー以外がアクションを起こした通知の中でまだチェックしていないものがあれば格納
+  #このデータの有無で新着情報ありのビジュアルをコントロールしている
   def new_notifications
     @new_notifications = current_user.passive_notifications.where.not(visitor_id: current_user.id).where(checked: false)
   end
 
+  #カレント以外のユーザーが起こした通知レコードで最も最後idを取得
+  #こちらのidを元に自動更新の仕組みを作っている
   def first_notifications
     @first_notifications = current_user.passive_notifications.where.not(visitor_id: current_user.id)
     @first_notifications = @first_notifications.first
   end
+  ##**アピールコードここまで##  
 
 end

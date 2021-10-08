@@ -44,10 +44,12 @@ class MatchesController < ApplicationController
     #フォロアーidにカレントユーザーidをプラスする
     @follow_ids.push(current_user.id)
 
+    ##**アピールコードここから##  
     #条件に直接引数を入れず?を入れるのはセキュリティ対策
     #「ユーザー」と「友達関係にあるユーザー」が投稿した情報で
     #todayから7日前までの情報を取得=情報が古くなれば表示されない
     @all_match = Match.where('day >= ?', Date.today-7).where(user_id: @follow_ids).order("day ASC").page(params[:page]).per(10)
+    ##**アピールコードここまで##  
   end
 
   def new

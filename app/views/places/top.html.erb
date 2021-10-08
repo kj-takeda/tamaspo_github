@@ -1,11 +1,10 @@
-
 <div class="top-frame">
-
+  <!-- ジャンル検索のモーダルウィンドウ --> 
   <%= render 'partial/modal/modal-genre' , all_genres: @all_genres%>
-
+  <!-- エリア検索のモーダルウィンドウ --> 
   <%= render 'partial/modal/modal-area' , all_areas: @all_areas%>
 
-    <%= render 'partial/header' %>
+    <%= render 'partial/header/header' %>
 
     <div class="top-container">
       <%= render 'partial/sidebar/index-sidebar' %>

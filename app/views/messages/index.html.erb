@@ -1,6 +1,6 @@
 <div class="message-index-frame" class="scroll-inner">
 
-  <%= render 'partial/header' %>
+  <%= render 'partial/header/header' %>
 
   <div class="message-index-container">
 
@@ -19,7 +19,7 @@
       </div>
 
       <% @messages.each do |message| %>
-        <!--　カレントユーザーの投稿であれば --> 
+          <!--　メッセージ送信者の画像 --> 
           <%= image_tag message.current.image.to_s %>
           <div class="message-main-content current-element">
             <p class="current-user-message"><%= message.body %></p>
@@ -32,7 +32,6 @@
 
   <footer class="footer-form">
     <%= form_for(Message.new , url:messages_path() ,data: { remote: true }) do |form| %>
-
         <%= form.text_area :body , placeholder: 
         "メッセージ入力してください(200文字まで)", class: "message-body-input" , maxlength:'200'%>
 
@@ -43,8 +42,7 @@
         <div class="message-new-form-submit">
           <%= form.submit value:"送信" , class:"message-new-form-submit-btn" %>
         </div>
-    
-      <% end %>
+    <% end %>
   </footer>
 </div>
 

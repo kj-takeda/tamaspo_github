@@ -1,6 +1,4 @@
 
-
-
 <% if current_user.comment_liked_by?(comment.id) %>
   <%= link_to 'いいね削除' , destroy_comment_good_path(comment.id) ,
   class:'index-main-contens-comment-content-btn-nice-link02' , 

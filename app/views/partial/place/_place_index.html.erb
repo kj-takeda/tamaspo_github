@@ -1,8 +1,8 @@
 
+<!-- スポットの検索結果が存在すれば --> 
 <% if @place_indexs.present? %>
   <!-- 無限スクロール用のコード  --> 
   <div class="scroll-list jscroll">
-
     <% @place_indexs.each do | place_index | %> 
       <div id="delete-<%= place_index.id %>">
         <% if user_signed_in? && place_index.user_id == current_user.id %>　
@@ -71,7 +71,6 @@
         </div>
       </div>
     <% end %>
-    
         <!-- 無限スクロール用のコード --> 
         <%= paginate @place_indexs , remote: true %>
   </div>

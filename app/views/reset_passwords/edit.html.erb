@@ -1,6 +1,6 @@
 <div class="edit-password-frame">
 
-  <%= render 'partial/header_new_edit' %>
+  <%= render 'partial/header/header_new_edit' %>
 
   <div class="edit-password-container">
 
@@ -9,7 +9,6 @@
       <p><%= "登録メールアドレス："+@user.email %></p>
 
       <p class="edit-password-text">新パスワードを入力してください</p>
-
 
       <%= form_with model:@user , url: reset_password_path(@user), local: true , class: "password-edit-form" do |f| %>
 

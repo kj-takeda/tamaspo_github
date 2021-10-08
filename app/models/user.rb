@@ -56,30 +56,36 @@ class User < ApplicationRecord
   #通知機能用のアソシエーション
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
-  
-##フォロー機能を実現するアソシエーション
-has_many :relationships , dependent: :destroy
-has_many :followings, through: :relationships, source: :follow ,dependent: :destroy
 
-has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id' , dependent: :destroy
-has_many :followers, through: :reverse_of_relationships, 
-source: :user , dependent: :destroy
+  ##**アピールコードここから##  
+  ##**ユーザーモデル1つで多対多のアソシエーションを完結　ユーザー同士が友達になれる##  
+  ##フォロー機能を実現するアソシエーション
+  has_many :relationships , dependent: :destroy
+  has_many :followings, through: :relationships, source: :follow ,dependent: :destroy
 
-##非表示ユーザーを多対多で結ぶアソシエーション
-has_many :hide_lists , dependent: :destroy
-##中間テービル「hide_lists」を通過してhideuser_idユーザーを取得する
-##user.hiddens　ユーザーが非表示にしたユーザーを配列にする
-has_many :hiddens, through: :hide_lists, source: :hideuser , dependent: :destroy
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id' , dependent: :destroy
+  has_many :followers, through: :reverse_of_relationships, 
+  source: :user , dependent: :destroy
 
-##中間テービル「hide_lists」を通過してuser_idユーザーを取得する
-##user.hides　非表示にしたユーザーを配列にする
-has_many :reverse_of_hide_lists, class_name: 'HideList',
-foreign_key: 'hideuser_id' , dependent: :destroy
+  ##**ユーザーモデル1つで多対多のアソシエーションを完結　ユーザーごとの非表示ユーザーを管理##  
+  ##非表示ユーザーを多対多で結ぶアソシエーション
+  has_many :hide_lists , dependent: :destroy
+  ##中間テービル「hide_lists」を通過してhideuser_idユーザーを取得する
+  ##user.hiddens　ユーザーが非表示にしたユーザーを配列にする
+  has_many :hiddens, through: :hide_lists, source: :hideuser , dependent: :destroy
 
-has_many :hides, through: :reverse_of_hide_lists ,
-source: :user , dependent: :destroy
+  ##中間テービル「hide_lists」を通過してuser_idユーザーを取得する
+  ##user.hides　非表示にしたユーザーを配列にする
+  has_many :reverse_of_hide_lists, class_name: 'HideList',
+  foreign_key: 'hideuser_id' , dependent: :destroy
 
-has_one_attached :image
+  has_many :hides, through: :reverse_of_hide_lists ,
+  source: :user , dependent: :destroy
+
+  ##**アピールコードここまで##  
+
+
+  has_one_attached :image
 
   #カレントユーザーの持つエントリーにmatch_idとmatch.id
   def entry_by?(match_id)

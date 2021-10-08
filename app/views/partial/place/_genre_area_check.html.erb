@@ -1,3 +1,4 @@
+<!-- ジャンル検索チェックとエリア検索チェックが存在すれば -->
 <% if @genre_checks.present? && @area_checks.present? %> 
   <div class="index-main-contents-search-check">
     <div class="index-main-contents-search-check-genre">
@@ -42,7 +43,7 @@
       </div>
     </div>
   </div>
-<!-- サイドバーのエリア検索チェックが存在なし場合 -->
+<!-- 検索チェックが存在なし場合 -->
 <% else %> 
   <div class="index-main-contents-search-check">
     <div class="index-main-contents-search-check-area">

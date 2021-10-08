@@ -1,11 +1,12 @@
 $(function(){
   $(function(){
+    //アピールコードここから
     var notifications_id = $('.notifications-first-number').text();
-  
+    //未チェック通知レコードが空白じゃなければ
+     //10000ミリ秒ごとにupdateという関数を実行する
     if(notifications_id != "") {
     setInterval(update, 10000);
     }
-    //10000ミリ秒ごとにupdateという関数を実行する
   });
 
   function update(){ //この関数では以下のことを行う
@@ -32,6 +33,6 @@ $(function(){
     .fail(function (data) {
       return false;
     })
-
   }
+   //アピールコードここまで
 });

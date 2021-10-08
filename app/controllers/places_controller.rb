@@ -10,8 +10,6 @@ class PlacesController < ApplicationController
   def top
     @all_genres = Genre.all
     @all_areas = Area.all
-
-    #カレントに他ユーザーがリアクションしたテーブルでcheckがまだ=新着情報があれば
   end
 
   def index
@@ -45,10 +43,12 @@ class PlacesController < ApplicationController
       @places.each do | place |
         @place_ids.push(place.place_id)
       end
-
+      ##**アピールコードここから##  
+      ##**ランダムメソッドを普通に使った場合、heroku本番環境でメソッドが機能しない為#  
       rand = Rails.env.production? ? "RANDOM()" : "rand()"
       #placeをランダムシャッフル
       @place_indexs = Place.where(id:@place_ids).order(rand).page(params[:page]).per(10)
+      ##**アピールコードここまで##  
       
     elsif(params[:areas]) then
       #チェックボックスのエリアidを文字列→整数化

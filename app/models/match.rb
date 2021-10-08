@@ -35,6 +35,7 @@ class Match < ApplicationRecord
     Match.where(id: match_id).exists?
   end
 
+  ##**アピールコードここから##  
   def save_notification_Entry!(current_user , user_id , match_id)
       notification = current_user.active_notifications.new(
         visitor_id: current_user.id,
@@ -63,5 +64,5 @@ class Match < ApplicationRecord
     end
     notification.save if notification.valid?
   end
-
+  ##**アピールコードここまで##  
 end
